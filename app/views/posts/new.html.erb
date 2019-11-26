@@ -1,0 +1,118 @@
+<%# render 'form', post: @post %>
+
+<style>
+  body,html{
+    height:100%;
+}
+input:focus
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+.form-control {
+  color: inherit;
+  border: none;
+  /* text-align: center; */
+}
+</style>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+
+    <div class="col-12">
+
+      <div id="videoPreview" style="display: none;">
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <img class="img-fluid" src="" alt="">
+          </div>
+        </div>
+      </div>
+
+      <%= form_for @post do |f| %>
+      <div class="form-group mx-5">
+        <div class="border-bottom cursor">
+          <h2 id="category"></h2>
+          <%= f.select :category_id, categories_for_select, { include_blank: true }, { class:'d-none' } %>
+          <h2>
+            <%= f.text_field :title, class:"form-control", placeholder:"O que você gostou?", autofocus:true %>
+          </h2>
+        </div>
+        <p id="emailHelp" class="form-text text-muted form-control pt-0">ex: filme O coringa</p>
+      </div>
+      <%= f.submit "", class:"d-none" %>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+source = document.querySelector('#post_title');
+typeHandler = function(e) {
+  input = e.target
+  text = e.target.value
+  words = text.split(' ')
+  categories = <%= Category.names.to_json.html_safe %>
+  categories.forEach(function(category) {
+    if ( words.includes(category) ) {
+      addCategory(category)
+      words.splice (words.indexOf(category), 1)
+      input.value = words.join(' ')
+    }
+  })
+  if ( text.includes('joker') ) {
+    url = `http://www.omdbapi.com/?t=joker&apikey=6b71672e`
+    $.get( url, function( data ) {
+      image_url = data.Poster
+      $('#videoPreview').find('img').attr('src',image_url)
+      debugger;
+      $('#videoPreview').toggle();
+    })
+  }
+  if ( text.includes('youtube') ) {
+    video_id = text.split('v=')[1];
+
+    url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${video_id}&key=AIzaSyBxtb6rVMzccDqNMRdIdLPJ0ylXwExsLvs`
+    thumbnail = `https://img.youtube.com/vi/${video_id}/hqdefault.jpg`
+
+    $.get( url, function( data ) {
+      if ( data ) {  }
+      title = data.items[0].snippet.title
+      input.value = title
+      $('#videoPreview').find('img').attr('src',thumbnail)
+      $('#videoPreview').toggle();
+      addCategory('youtube')
+    })
+  }
+}
+
+function addCategory(category) {
+  category_selector = document.getElementById('post_category_id')
+  category_index = Array.from(category_selector.options).findIndex(option => option.text === category);
+  category_selector.selectedIndex = category_index
+  switch (category) {
+    case 'livro':
+    text = "📘 Livro"
+    break
+    case 'filme':
+    text = "🍿 Filme"
+    break
+    case 'podcast':
+    text = "🎧 Podcast"
+    break
+    case 'seriado':
+    text = "📺 Seriado"
+    break
+    case 'jogo':
+    text = "🎮 Jogo"
+    case 'youtube':
+    text = "📹 Youtube"
+    break
+  }
+  document.querySelector('#category').innerHTML = text;
+}
+
+source.addEventListener('input', typeHandler)
+</script>

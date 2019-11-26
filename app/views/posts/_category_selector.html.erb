@@ -1,0 +1,93 @@
+<style media="screen">
+.list {
+  display: inline-block;
+  position: relative;
+  margin-left: 6px;
+}
+.list ul {
+  text-align: left;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.list ul .active {
+  display: block;
+}
+.list li {
+  list-style: none;
+}
+.list li:first-child a {
+  color: #7d40bf;
+}
+.list a {
+  transition: all .4s;
+  color: #7b00ff;
+  position: relative;
+}
+.list a:after {
+  position: absolute;
+  content: '';
+  height: 5px;
+  width: 0;
+  left: 0;
+  background: #b066ff;
+  bottom: 0;
+  transition: all .4s ease-out;
+}
+.list a:hover {
+  cursor: pointer;
+  color: #b066ff;
+}
+.list a:hover:after {
+  width: 100%;
+}
+
+</style>
+
+<h2>
+<div class="list"><span class="placeholder">select</span>
+  <ul class="list__ul">
+    <li><a href="">select</a></li>
+    <li><a href="">lorem</a></li>
+    <li><a href="">ipsum</a></li>
+    <li><a href="">dolor</a></li>
+    <li><a href="">sit</a></li>
+    <li><a href="">amet</a></li>
+  </ul>
+</div>
+</h2>
+
+<script>
+var el = {};
+
+$('.placeholder').on('click', function (ev) {
+  $('.placeholder').css('opacity', '0');
+  $('.list__ul').toggle();
+});
+
+$('.list__ul a').on('click', function (ev) {
+  ev.preventDefault();
+  var index = $(this).parent().index();
+
+  $('.placeholder').text( $(this).text() ).css('opacity', '1');
+
+  console.log($('.list__ul').find('li').eq(index).html());
+
+  $('.list__ul').find('li').eq(index).prependTo('.list__ul');
+  $('.list__ul').toggle();
+
+});
+
+
+$('select').on('change', function (e) {
+
+  // Set text on placeholder hidden element
+  $('.placeholder').text(this.value);
+
+  // Animate select width as placeholder
+  $(this).animate({width: $('.placeholder').width() + 'px' });
+
+});
+</script>
