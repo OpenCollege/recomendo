@@ -31,7 +31,7 @@ input:focus
 
       <%= form_for @post do |f| %>
       <%= f.hidden_field :url %>
-      <div class="form-group mx-5">
+      <div class="form-group mx-lg-5">
         <div class="border-bottom cursor">
           <h2 id="category"></h2>
           <%= f.select :category_id, categories_for_select, { include_blank: true }, { class:'d-none' } %>

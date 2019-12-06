@@ -43,6 +43,7 @@
           <div class="col fr-box" role="application" style="z-index: 10000;">
             <div class="fr-wrapper" dir="auto">
               <div aria-disabled="false" class="fr-element fr-view" dir="auto" spellcheck="true">
+                <%= link_to 'Apagar', @post, method: :delete, class:'float-right', data: { confirm: 'Are you sure?' } %>
                 <p>
                   <%= form.submit 'Salvar', class: 'btn btn-primary' %>
                 </p>
