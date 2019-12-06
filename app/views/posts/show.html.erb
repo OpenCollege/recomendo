@@ -11,6 +11,10 @@ box-shadow: none !important;
 .border-top- {
   border-top: solid .3125rem #efefef;;
 }
+.dotted {
+  border-bottom: 1px dashed #999;
+  text-decoration: none;
+}
 </style>
 
 <section class="fdb-block py-0" data-block-type="contents" data-id="43" draggable="true">
@@ -18,12 +22,16 @@ box-shadow: none !important;
     <div class="row text-left py-5">
       <div class="col-12 col-md-10 col-lg-8">
         <div class="fdb-box border-top-<%= @post.category.try(:name) %>">
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
-            <%= @post.category.try(:name) || "Sem categoria" %>
-          </button>
-          <%= link_to "Editar", edit_post_path(@post), class:'float-right' %>
+          <u class="dotted"><%= @post.category.try(:name) || "Sem categoria" %></u>
+          <%= link_to edit_post_path(@post), :class => "float-right" do %>
+             Editar
+             <i class="fas fa-edit"></i>
+          <% end %>
           <h1 contenteditable="true" id='editable_title'><%= @post.title %></h1>
-          <p><%= @post.url %></p>
+          <p></p>
+          <% if @post.url %>
+            <p class="h3 mt-4"><a href="<%= @post.url %>" target="_blank">Abrir link <i class="fas fa-angle-right"></i></a></p>
+          <% end %>
           <p class="lead" contenteditable="true" id='editable_body'>
             <%= @post.body %>
           </p>
@@ -34,32 +42,3 @@ box-shadow: none !important;
 </div>
 </div>
 </section>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Selecione a categoria</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body row">
-        <% Category.all.each do |category| %>
-        <div class="col-md-3">
-          <%= link_to category.name_with_icon, "#" %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script>
-document.getElementById('editable_title').addEventListener('input', titleHandler)
-document.getElementById('editable_body').addEventListener('input', bodyHandler)
-function titleHandler() { document.getElementById('post_title').value = this.innerText }
-function bodyHandler() { document.getElementById('post_body').value = this.innerText }
-</script>
