@@ -23,6 +23,7 @@ box-shadow: none !important;
           </button>
           <%= link_to "Editar", edit_post_path(@post), class:'float-right' %>
           <h1 contenteditable="true" id='editable_title'><%= @post.title %></h1>
+          <p><%= @post.url %></p>
           <p class="lead" contenteditable="true" id='editable_body'>
             <%= @post.body %>
           </p>

@@ -1,3 +1,38 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-control {
+  color: inherit;
+  border: none;
+}
+.fdb-filme {
+  border-top: solid .3125rem #eb6b56;
+}
+.border-left-filme {
+  border-left: solid .3125rem #eb6b56;
+}
+.fdb-livro {
+  border-top: solid .3125rem #3d8eb9;;
+}
+.border-left-livro {
+  border-left: solid .3125rem #3d8eb9;;
+}
+.fdb-seriado {
+  border-top: solid .3125rem #a38f84;;
+}
+.border-left-seriado {
+  border-left: solid .3125rem #a38f84;;
+}
+.fdb-podcast {
+  border-top: solid .3125rem #28324e;
+}
+.border-left-podcast {
+  border-left: solid .3125rem #28324e;
+}
+.fdb-any {
+  border-top: solid .3125rem #efefef;
+}
+.border-left- {
+  border-left: solid .3125rem #efefef;
+}

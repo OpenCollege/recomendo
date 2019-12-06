@@ -30,6 +30,7 @@ input:focus
       </div>
 
       <%= form_for @post do |f| %>
+      <%= f.hidden_field :url %>
       <div class="form-group mx-5">
         <div class="border-bottom cursor">
           <h2 id="category"></h2>
@@ -85,7 +86,22 @@ typeHandler = function(e) {
       $('#videoPreview').toggle();
       addCategory('youtube')
     })
+  } else if ( validURL(text) ) {
+    $.get( "cors/get_title?url=" + text, function( data ) {
+      input.value = data.title
+    })
+    $("#post_url").val(text)
   }
+}
+
+function validURL(str) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return !!pattern.test(str);
 }
 
 function addCategory(category) {
