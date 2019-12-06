@@ -64,7 +64,7 @@ typeHandler = function(e) {
     }
   })
   if ( text.includes('joker') ) {
-    url = `https://www.omdbapi.com/?t=joker&apikey=6b71672e`
+    url = `https://www.omdbapi.com/?t=joker&apikey=<%= Rails.application.credentials.omdb %>`
     $.get( url, function( data ) {
       image_url = data.Poster
       $('#videoPreview').find('img').attr('src',image_url)
@@ -75,7 +75,7 @@ typeHandler = function(e) {
   if ( text.includes('youtube') ) {
     video_id = text.split('v=')[1];
 
-    url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${video_id}&key=AIzaSyBxtb6rVMzccDqNMRdIdLPJ0ylXwExsLvs`
+    url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${video_id}&key=<%= Rails.application.credentials.youtube %>`
     thumbnail = `https://img.youtube.com/vi/${video_id}/hqdefault.jpg`
 
     $.get( url, function( data ) {
