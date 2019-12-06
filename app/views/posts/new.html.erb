@@ -64,7 +64,7 @@ typeHandler = function(e) {
     }
   })
   if ( text.includes('joker') ) {
-    url = `http://www.omdbapi.com/?t=joker&apikey=6b71672e`
+    url = `https://www.omdbapi.com/?t=joker&apikey=6b71672e`
     $.get( url, function( data ) {
       image_url = data.Poster
       $('#videoPreview').find('img').attr('src',image_url)
