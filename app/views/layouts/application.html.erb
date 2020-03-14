@@ -11,8 +11,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!-- Icons -->
+    <!-- Apple specific PWA -->
     <%= favicon_link_tag 'icon_192.png', rel: 'apple-touch-icon', type: 'image/png' %>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Icons -->
     <%= favicon_link_tag "favicon-16x16.png", sizes:"16x16" %>
     <%= favicon_link_tag "favicon-32x32.png", sizes:"32x32" %>
     <%= favicon_link_tag "favicon-96x96.png", sizes:"96x96" %>
