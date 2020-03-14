@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   namespace :cors do
     get 'get_title'
   end
+
+  # Service Worker Routes
+  get '/service-worker.js' => "service_worker#service_worker"
+  get '/manifest.json' => "service_worker#manifest"
 end

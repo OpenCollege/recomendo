@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# To edit secrets
+```
+$ bundle exec rails credentials:edit
+```
+And if you haven't already, set your editor to open credentials:
+```
+export EDITOR='atom --wait'
+```
