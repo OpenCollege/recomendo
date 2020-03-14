@@ -36,6 +36,7 @@ input:focus
           <h2 id="category"></h2>
           <%= f.select :category_id, categories_for_select, { include_blank: true }, { class:'d-none' } %>
           <h2>
+            <%= f.label :title %>
             <%= f.text_field :title, class:"form-control", placeholder:"O que você gostou?", autofocus:true %>
           </h2>
         </div>
