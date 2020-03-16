@@ -32,11 +32,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
   </head>
 
-  <body>
+  <body style="background-color: #f7f6f9">
 
     <%= render 'shared/header' %>
     <%= render 'shared/notice' if notice %>
     <%= yield %>
+
+    <%= render 'shared/footer' %>
 
     <script src="https://kit.fontawesome.com/c0fadf581c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

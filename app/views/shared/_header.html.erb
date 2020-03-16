@@ -1,7 +1,70 @@
-<header data-block-type="headers" data-id="34" class="">
+<style media="screen">
+  .shadow {
+    box-shadow: .3125rem .3125rem .875rem 0.2rem rgba(129,129,129,.2)!important;
+    border-radius: .5rem;
+  }
+</style>
+<nav class="navbar fixed-top navbar-light bg-white d-lg-none p-2 shadow">
+  <div class="col-2">
+    <a class="m-0 text-muted" href="javascript:history.back()"><i class="fas fa-chevron-left"></i></a>
+  </div>
+  <div class="col-8 text-center">
+    <%= link_to "💬 Recomendo 👌", root_path, class:"navbar-brand m-0" %>
+  </div>
+  <div class="col-2 text-right">
+      <a class="m-0 text-muted" href="/posts"><i class="fas fa-ellipsis-v"></i></a>
+  </div>
+</nav>
+
+<!-- <header>
   <div class="container">
     <nav class="navbar navbar-expand-md no-gutters">
-      <div class="col-2 text-left"><%= link_to "Recomendo 💬👌", root_path, class:"text-decoration-none text-muted" %></div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="col-4 col-md-2 text-right text-md-center order-lg-6">
+        <a href="https://www.froala.com">
+          <img src="./imgs/logo.png" height="30" alt="image">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse col-12 col-md-5 order-lg-1" id="navbarNav2">
+        <ul class="navbar-nav col-5">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.froala.com">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.froala.com">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.froala.com">Team</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav justify-content-end col-sm-5 order-lg-12 d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.froala.com"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.froala.com"><i class="fab fa-github"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.froala.com"><i class="fab fa-slack"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header> -->
+
+<!-- <header>
+  <div class="container">
+    <nav class="navbar navbar-expand-md no-gutters">
+      <div class="col-6 text-left"><%= link_to "Recomendo 💬👌", root_path, class:"text-decoration-none text-muted" %></div>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,4 +92,4 @@
       </div>
     </nav>
   </div>
-</header>
+</header> -->
