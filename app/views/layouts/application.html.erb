@@ -8,12 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#C50001"/>
 
+    <!-- Meta Description should be page specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Recomendo App">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <!-- Apple specific PWA -->
     <%= favicon_link_tag 'icon_192.png', rel: 'apple-touch-icon', type: 'image/png' %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
 
     <!-- Icons -->
     <%= favicon_link_tag "favicon-16x16.png", sizes:"16x16" %>
@@ -22,17 +28,13 @@
     <%= favicon_link_tag "favicon-128x128.png", sizes:"128x128" %>
     <%= favicon_link_tag "favicon-196x196.png", sizes:"196x196" %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="Description" content="Recomendo App">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-color: #f7f6f9">
+  <body>
 
     <%= render 'shared/header' %>
     <%= render 'shared/notice' if notice %>
