@@ -1,0 +1,26 @@
+<style>
+.bd-sidebar {
+  top: 5rem;
+  left: 0;
+  height: calc(100vh - 8rem);
+}
+</style>
+
+<nav class="custom-box sticky-top bd-sidebar">
+  <h3>Categorias <span><%= Category.all.count %></span></h3>
+  <% Category.all.each do |category| %>
+    <%= link_to posts_path(category_id: category), class: "" do %>
+    <%= category.icon %>
+    <%= category.name.pluralize.titleize %>
+    (<%= category.posts.count %> new)
+    <% end %><br>
+  <% end %>
+
+  <h3>Categorias <span><%= Category.all.count %></span></h3>
+  <% Category.all.each do |category| %>
+    <%= link_to category, class: "" do %>
+      <%= category.icon %>
+      <%= category.name.titleize %>
+    <% end %><br>
+  <% end %>
+</nav>

@@ -1,8 +1,19 @@
  body {
-   background-color: #f7f6f9;
+   // background-color: #f7f6f9;
+   background-color: #FFEAE4;
  }
 
  .navbar {
    box-shadow: .3125rem .3125rem .875rem 0.3rem rgba(129,129,129,.2);
-   border-radius: .5rem;
+   // border-radius: .5rem;
+   border: 1px solid transparent;
+   // border-radius: 8px;
+   // box-shadow: 0 4px 8px 3px rgba(60,64,67,.15);
+ }
+
+ .custom-box {
+   background-color: #fff;
+   padding: 1rem;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px 3px rgba(60,64,67,.15);
  }

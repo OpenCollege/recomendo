@@ -1,0 +1,11 @@
+<div class="custom-box my-2 border-left-<%= post.category.try(:name) %>">
+  <h3><%= post.title %>
+  <%= link_to post, class: "float-right" do %>
+    <small><i class="fas fa-angle-right"></i></small>
+  <% end %>
+  </h3>
+  <p>
+    <%= post.body.try(:truncate,80, separator: /\s/).try(:html_safe) %>
+  </p>
+
+</div>

@@ -38,21 +38,7 @@
 
     <%= render 'shared/header' %>
     <%= render 'shared/notice' if notice %>
-
-    <div class="container-fluid px-md-5">
-      <div class="row mt-4">
-        <div class="col-md-3 col-xl-2 pl-0">
-          <%= render 'shared/sidebar' %>
-        </div>
-        <div class="col-md-9 col-xl-8 py-md-4">
-          <%= yield %>
-        </div>
-        <div class="d-none d-xl-block col-xl-2">
-          Bonjouur madams
-        </div>
-      </div>
-    </div>
-
+    <%= yield %>
 
     <%= render 'shared/footer' %>
 
