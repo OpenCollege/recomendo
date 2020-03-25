@@ -6,11 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# Categories
 movie = Category.create(name: "filme",icon: "🍿")
 book = Category.create(name: "livro",icon: "📘")
 podcast = Category.create(name: "podcast",icon: "🎧")
 series = Category.create(name: "seriado",icon: "📺")
 video = Category.create(name: "video",icon: "📹")
+
+# Tags
+programação = Tag.create(name:"programação")
+netflix = Tag.create(name:"netflix")
 
 Post.create(title:"Self-Made", category: series, body: "Minisérie de 4 episódios sobre a primeira mulher milhonária dos EUA")
 Post.create(title:"Sully", category: movie, body: "Filme sobre um cara que fez um pouso de emergência de um avião no Rio Hudson")

@@ -16,11 +16,11 @@
     <% end %><br>
   <% end %>
 
-  <h3>Categorias <span><%= Category.all.count %></span></h3>
-  <% Category.all.each do |category| %>
-    <%= link_to category, class: "" do %>
-      <%= category.icon %>
-      <%= category.name.titleize %>
+  <br>
+  <h3>Tags <span><%= Tag.all.count %></span></h3>
+  <% Tag.all.each do |tag| %>
+    <%= link_to tag, class: "" do %>
+      <%= tag.name.titleize %>
     <% end %><br>
   <% end %>
 </nav>
