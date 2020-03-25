@@ -32,3 +32,14 @@ And if you haven't already, set your editor to open credentials:
 ```
 export EDITOR='atom --wait'
 ```
+# To reset migrations
+```
+rails db:migrate:reset
+rails db:seed
+```
+On heroku
+```
+heroku pg:reset -a recomendo
+heroku run rails db:migrate -a recomendo
+heroku run rails db:seed -a recomendo
+```
