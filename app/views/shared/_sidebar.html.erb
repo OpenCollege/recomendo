@@ -1,26 +1,41 @@
+<!--
 <style>
 .bd-sidebar {
-  top: 5rem;
-  left: 0;
-  height: calc(100vh - 8rem);
+top: 5rem;
+left: 0;
+height: calc(100vh - 8rem);
 }
 </style>
+-->
 
-<nav class="custom-box sticky-top bd-sidebar">
-  <h3>Categorias <span><%= Category.all.count %></span></h3>
-  <% Category.all.each do |category| %>
-    <%= link_to posts_path(category_id: category), class: "" do %>
-    <%= category.icon %>
-    <%= category.name.pluralize.titleize %>
-    (<%= category.posts.count %> new)
-    <% end %><br>
-  <% end %>
+<nav class="navbar navbar-light bg-light custom-box">
+  <a class="navbar-brand" href="#">Filtrar</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <br>
-  <h3>Tags <span><%= Tag.all.count %></span></h3>
-  <% Tag.all.each do |tag| %>
-    <%= link_to tag, class: "" do %>
+  <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+    <ul class="navbar-nav mr-auto">
+
+
+      <h3>Categorias <span><%= Category.all.count %></span></h3>
+      <% Category.all.each do |category| %>
+      <%= link_to posts_path(category_id: category), class: "" do %>
+      <%= category.icon %>
+      <%= category.name.pluralize.titleize %>
+      <% end %>
+      <% end %>
+
+      <h3>Tags <span><%= Tag.all.count %></span></h3>
+      <% Tag.all.each do |tag| %>
+      <%= link_to tag, class: "" do %>
       <%= tag.name.titleize %>
-    <% end %><br>
-  <% end %>
+      <% end %>
+      <% end %>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
 </nav>
