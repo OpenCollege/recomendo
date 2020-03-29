@@ -12,47 +12,33 @@
 </div>
 <% end %>
 
-<%= form_with(model: post, local: true) do |form| %>
-<section class="fdb-block py-0" data-block-type="forms" data-id="10">
-  <div class="container py-5 my-5" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@2.0.1/dist/imgs//shapes/6.svg);">
-    <div class="row">
-      <div class="col-12 col-md-8 col-lg-7 text-left" style="z-index: 10000;">
-        <div class="row">
-          <div class="col mt-4 fr-box" role="application" style="z-index: 10000;">
-            <div class="fr-wrapper" dir="auto">
-              <div aria-disabled="false" class="fr-element fr-view" dir="auto" spellcheck="true">
-                <p>
-                  <%= form.text_field :title, placeholder: 'Título', class: 'form-control' %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col fr-box" role="application" style="z-index: 10000;">
-            <div class="fr-wrapper" dir="auto">
-              <div aria-disabled="false" class="fr-element fr-view" dir="auto" spellcheck="true">
-                <p>
-                  <%= form.text_area :body, placeholder: 'Descrição', class: 'form-control' %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col fr-box" role="application" style="z-index: 10000;">
-            <div class="fr-wrapper" dir="auto">
-              <div aria-disabled="false" class="fr-element fr-view" dir="auto" spellcheck="true">
-                <%= link_to 'Apagar', @post, method: :delete, class:'float-right', data: { confirm: 'Are you sure?' } %>
-                <p>
-                  <%= form.submit 'Salvar', class: 'btn btn-primary' %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= form_with(model: post, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class:"form-control", placeholder:"O que você gostou?", autofocus:true %>
   </div>
-</section>
+
+  <div class="form-group">
+    <%= f.label :category_id, "Categoria" %>
+    <%= f.select :category_id, categories_for_select, { include_blank:"" }, { class:'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tag_ids, "Tags" %>
+    <%= f.select :tag_ids, Tag.all.pluck(:name,:id), { include_blank:"" }, { class:'form-control', multiple:false } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url, "Link" %>
+    <%= f.text_field :url, class:"form-control", placeholder:"" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, "Descrição" %>
+    <%= f.text_area :body, class:"form-control", placeholder:"" %>
+  </div>
+
+    <%= f.submit %>
+
 <% end %>

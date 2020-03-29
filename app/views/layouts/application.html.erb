@@ -1,75 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Recomendo</title>
+<head>
+  <title>Recomendo</title>
 
-    <!-- Lighthouse Details -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#C50001"/>
+  <!-- Lighthouse Details -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#C50001"/>
 
-    <!-- Meta Description should be page specific -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="Recomendo App">
+  <!-- Meta Description should be page specific -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Recomendo App">
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <!-- Apple specific PWA -->
-    <%= favicon_link_tag 'icon_192.png', rel: 'apple-touch-icon', type: 'image/png' %>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="format-detection" content="telephone=no">
+  <!-- Apple specific PWA -->
+  <%= favicon_link_tag 'icon_192.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
 
-    <!-- Icons -->
-    <%= favicon_link_tag "favicon-16x16.png", sizes:"16x16" %>
-    <%= favicon_link_tag "favicon-32x32.png", sizes:"32x32" %>
-    <%= favicon_link_tag "favicon-96x96.png", sizes:"96x96" %>
-    <%= favicon_link_tag "favicon-128x128.png", sizes:"128x128" %>
-    <%= favicon_link_tag "favicon-196x196.png", sizes:"196x196" %>
+  <!-- Icons -->
+  <%= favicon_link_tag "favicon-16x16.png", sizes:"16x16" %>
+  <%= favicon_link_tag "favicon-32x32.png", sizes:"32x32" %>
+  <%= favicon_link_tag "favicon-96x96.png", sizes:"96x96" %>
+  <%= favicon_link_tag "favicon-128x128.png", sizes:"128x128" %>
+  <%= favicon_link_tag "favicon-196x196.png", sizes:"196x196" %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
+  <!-- Compiled Stylesheets and JS -->
+  <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Webpacker -->
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!-- Webpacker -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- Custom assets/stylesheets -->
 
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css"> -->
+</head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
 
-  <body>
+  <%= render 'shared/header' %>
+  <%= render 'shared/notice' if notice %>
 
-    <%= render 'shared/header' %>
-    <%= render 'shared/notice' if notice %>
-
-    <div class="container-fluid">
-      <div class="row pt-2">
-        <div class="col-md-3 col-xl-2 bd-sidebar">
-          <%= render 'shared/sidebar' %>
-        </div>
-        <div class="col-md-9 col-xl-8 py-md-4">
-          <%= render 'shared/new_button' %>
-          <%= yield %>
-          <%= render 'shared/add_to_home' %>
-        </div>
-        <div class="d-none d-xl-block col-xl-2">
-          Bonjouur madams
-        </div>
+  <div class="container-fluid">
+    <div class="row pt-2">
+      <div class="col-md-3 col-xl-2 bd-sidebar">
+        <%= render 'shared/sidebar' %>
+      </div>
+      <div class="col-md-9 col-xl-8 py-md-4">
+        <%= yield %>
+      </div>
+      <div class="d-none d-xl-block col-xl-2">
+        <%= render 'shared/add_to_home' %>
       </div>
     </div>
+  </div>
 
-    <%= render 'shared/footer' %>
+  <%= render 'shared/modal' %>
 
-    <script src="https://kit.fontawesome.com/c0fadf581c.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+  <%= render 'shared/footer' %>
 
-  </body>
-  <script>
-  document.addEventListener('turbolinks:load', function(){
-    // FontAwesome.dom.i2svg();
-    $('.selectpicker').selectpicker();
-  })
-  </script>
+</body>
 </html>

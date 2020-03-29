@@ -8,8 +8,17 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-// Custom files
-require("custom/add_to_homescreen")
+// Bootstrap JS
+require('jquery')
+require('popper.js')
+require('bootstrap')
+
+// Custom CSS files
+require("css/site")
+
+// Custom JS files
+require("js/add_to_homescreen")
+require("js/fontawesome")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

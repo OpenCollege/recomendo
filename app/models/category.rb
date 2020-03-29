@@ -2,19 +2,15 @@ class Category < ApplicationRecord
   has_many :posts
 
   scope :by_name, -> { order(name: :asc) }
-  
+
   def self.names
     all.map{|category| category.name}
   end
+
   def name_with_icon
-    case name
-    when "livro" then "Livro 📘"
-    when "filme" then "Filme 🍿"
-    when "podcast" then "Podcast 🎧"
-    when "seriado" then "Seriado 📺"
-    else name
-    end
+    "#{icon} #{name.titleize}"
   end
+  
   # def icon
   #   case name
   #   when "livro" then "📘"

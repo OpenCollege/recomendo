@@ -1,44 +1,22 @@
-<style>
-/* [contenteditable]:read-write:focus {
-outline: none;
-}
-input:focus
-{
-outline:0px !important;
--webkit-appearance:none;
-box-shadow: none !important;
-} */
-.border-top- {
-  border-top: solid .3125rem #efefef;;
-}
-.dotted {
-  border-bottom: 1px dashed #999;
-  text-decoration: none;
-}
-</style>
+<div class="card">
+  <div class="card-header">
+    <span class="h5"><%= @post.title %></span>
+    <%= link_to edit_post_path(@post), :class => "float-right" do %>
+    <i class="fas fa-edit"></i>
+    <% end %>
+  </div>
 
-<section class="fdb-block py-0" data-block-type="contents" data-id="43" draggable="true">
-  <div class="container py-5 my-5 bg-r" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@2.0.1/dist/imgs//shapes/9.svg);">
-    <div class="row text-left py-5">
-      <div class="col-12 col-md-10 col-lg-8">
-        <div class="fdb-box border-top-<%= @post.category.try(:name) %>">
-          <u class="dotted"><%= @post.category.try(:name) || "Sem categoria" %></u>
-          <%= link_to edit_post_path(@post), :class => "float-right" do %>
-             Editar
-             <i class="fas fa-edit"></i>
-          <% end %>
-          <h1 contenteditable="true" id='editable_title'><%= @post.title %></h1>
-          <p></p>
-          <% if @post.url %>
-            <p class="h3 mt-4"><a href="<%= @post.url %>" target="_blank">Abrir link <i class="fas fa-angle-right"></i></a></p>
-          <% end %>
-          <p class="lead" contenteditable="true" id='editable_body'>
-            <%= @post.body %>
-          </p>
-        </div>
-      </div>
-    </div>
+  <div class="card-body">
+    <% if @post.url %>
+      <%= link_to @post.url, class: "" do %>
+      Abrir link <i class="fas fa-angle-right"></i>
+      <% end %>
+    <% end %>
+    <p class="card-text">
+      <%= @post.body %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Last updated 3 mins ago</small>
   </div>
 </div>
-</div>
-</section>
