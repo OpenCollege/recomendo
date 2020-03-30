@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-header">
     <span class="h5"><%= @post.title %></span>
-    <%= link_to edit_post_path(@post), :class => "float-right" do %>
-    <i class="fas fa-edit"></i>
+    <%= link_to "#", class: "float-right", data: {toggle:"modal", target:"#exampleModal"} do %>
+      <i class="fas fa-edit"></i>
     <% end %>
   </div>
 

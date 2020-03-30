@@ -1,11 +1,16 @@
 <div class="card border-left-<%= post.category.try(:name) %> box-shadow">
-  <%= link_to post, class: "text-dark" do %>
   <div class="card-header">
+    <%= link_to post, class: "text-dark" do %>
     <%= post.category.try(:name_with_icon) %><br>
     <span class="h5"><%= post.title %></span>
-    <small>Tags: <%= post.tags.count %></small>
+    <% end %>
+    <small>
+      Tags: <%= post.tags.count %><br>
+      <% post.tags.each do |tag| %>
+        <span class="float-right badge badge-pill badge-info"><%= tag.name %></span>
+      <% end %>
+    </small>
   </div>
-  <% end %>
 
   <div class="card-body">
     <% if post.url %>
