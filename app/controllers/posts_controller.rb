@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'Recomendação criada' }
+        format.html { redirect_to @post, notice: 'Recomendação criada' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :category_id, :url)
+      params.require(:post).permit(:title, :body, :category_id, :url, :tag_list)
     end
 end
