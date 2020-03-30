@@ -42,7 +42,7 @@
 
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-outline-secondary"  data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" id="cancel-modal">Cancelar</button>
         <%= f.submit "Publicar", class:"btn btn-primary" %>
       </div>
 
@@ -50,3 +50,11 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+  $('#cancel-modal').on('click', function () {
+      $(this).closest('form').trigger('reset');
+  })
+});
+</script>
