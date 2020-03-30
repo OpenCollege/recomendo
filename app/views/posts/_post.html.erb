@@ -1,38 +1,45 @@
 <div class="card border-left-<%= post.category.try(:name) %> box-shadow">
+  <%= link_to post, class: "text-dark" do %>
   <div class="card-header">
-    <%= link_to post, class: "text-dark" do %>
-    <%= post.category.try(:name_with_icon) %><br>
-    <span class="h5"><%= post.title %></span>
-    <% end %>
+    <%= post.category.try(:name_with_icon) %>
     <small>
-      Tags: <%= post.tags.count %><br>
       <% post.tags.each do |tag| %>
-        <span class="float-right badge badge-pill badge-info"><%= tag.name %></span>
+      <span class="badge badge-pill badge-info"><%= tag.name %></span>
       <% end %>
     </small>
+    <br>
+    <span class="h5"><%= post.title %></span>
+
   </div>
+  <% end %>
+
 
   <div class="card-body">
+
     <% if post.url %>
-      <%= link_to post.url, class: "" do %>
-      Abrir link <i class="fas fa-angle-right"></i>
-      <% end %>
+    <%= link_to post.url, class: "" do %>
+    Abrir link <i class="fas fa-angle-right"></i>
+    <% end %>
     <% end %>
     <p class="card-text">
       <%= post.body %>
     </p>
+
   </div>
+
   <div class="card-footer bg-transparent">
     <small class="text-muted"><%= localize(post.created_at, format: :long) %></small>
   </div>
 </div>
 
 
+
+
 <div class="custom-box my-2 border-left-<%= post.category.try(:name) %>">
   <h3><%= post.title %>
-  <%= link_to post, class: "float-right" do %>
+    <%= link_to post, class: "float-right" do %>
     <small><i class="fas fa-angle-right"></i></small>
-  <% end %>
+    <% end %>
   </h3>
   <p>
     <%= post.body.try(:truncate,80, separator: /\s/).try(:html_safe) %>

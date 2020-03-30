@@ -19,6 +19,7 @@ require("css/site")
 // Custom JS files
 require("js/add_to_homescreen")
 require("js/fontawesome")
+require("js/tagsinput")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
