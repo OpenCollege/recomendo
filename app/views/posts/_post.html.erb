@@ -1,48 +1,52 @@
-<div class="card border-left-<%= post.category.try(:name) %> box-shadow">
-  <%= link_to post, class: "text-dark" do %>
-  <div class="card-header">
-    <%= post.category.try(:name_with_icon) %>
-    <small>
-      <% post.tags.each do |tag| %>
-      <span class="badge badge-pill badge-info"><%= tag.name %></span>
+<div class="col mb-4">
+  <div class="card border-left-<%= post.category.try(:name) %> box-shadow">
+
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <%= post.category.try(:name_with_icon) %>
+        </div>
+        <div>
+          <small>
+            <% post.tags.each do |tag| %>
+            <span class="badge badge-pill badge-info py-1"><%= tag.name %></span>
+            <% end %>
+          </small>
+        </div>
+      </div>
+      <hr class="my-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="mr-2">
+            <img class="rounded-circle" width="40" src="https://picsum.photos/50/50" alt="">
+          </div>
+          <div class="ml-2">
+            <div class="h7 m-0"><%= post.user.try(:email) %></div>
+            <small class="text-muted"><%= localize(post.created_at, format: :long) %></small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card-body">
+      <span class="h5"><%= post.title %></span>
+
+      <% if post.url.present? %>
+      <%= link_to post.url, target:"_blank" do %>
+      <br>Acessar link <i class="fas fa-angle-right"></i>
       <% end %>
-    </small>
-    <br>
-    <span class="h5"><%= post.title %></span>
+      <% end %>
+      <p class="card-text">
+        <%= post.body.try(:truncate,80, separator: /\s/).try(:html_safe) %>
+      </p>
 
+    </div>
+
+    <div class="card-footer bg-transparent d-flex justify-content-between container">
+      <a href="#"><i class="far fa-heart"></i> Like</a>
+      <a href="#"><i class="far fa-comment"></i> Comment</a>
+      <a href="#"><i class="far fa-bookmark"></i> Save</a>
+    </div>
   </div>
-  <% end %>
-
-
-  <div class="card-body">
-
-    <% if post.url %>
-    <%= link_to post.url, class: "" do %>
-    Abrir link <i class="fas fa-angle-right"></i>
-    <% end %>
-    <% end %>
-    <p class="card-text">
-      <%= post.body %>
-    </p>
-
-  </div>
-
-  <div class="card-footer bg-transparent">
-    <small class="text-muted"><%= localize(post.created_at, format: :long) %></small>
-  </div>
-</div>
-
-
-
-
-<div class="custom-box my-2 border-left-<%= post.category.try(:name) %>">
-  <h3><%= post.title %>
-    <%= link_to post, class: "float-right" do %>
-    <small><i class="fas fa-angle-right"></i></small>
-    <% end %>
-  </h3>
-  <p>
-    <%= post.body.try(:truncate,80, separator: /\s/).try(:html_safe) %>
-  </p>
-
 </div>

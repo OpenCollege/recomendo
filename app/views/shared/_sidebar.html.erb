@@ -7,7 +7,6 @@ height: calc(100vh - 8rem);
 }
 </style>
 -->
-
 <nav class="navbar navbar-light bg-light custom-box">
   <a class="navbar-brand" href="#">Filtrar</a>
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,18 +16,18 @@ height: calc(100vh - 8rem);
   <div class="navbar-collapse collapse" id="navbarsExample01" style="">
     <ul class="navbar-nav mr-auto">
 
-
       <h3>Categorias <span><%= Category.all.count %></span></h3>
       <% Category.all.each do |category| %>
-      <%= link_to posts_path(category_id: category), class: "" do %>
-      <%= category.icon %>
-      <%= category.name.pluralize.titleize %>
+      <% class_name = @filtered_category == category ? "btn btn-primary" : "btn btn-light"  %>
+      <%= link_to posts_path(category_id: category), class: class_name do %>
+      <%= category.plural_name_with_icon %>
       <% end %>
       <% end %>
 
       <h3>Tags <span><%= Tag.all.count %></span></h3>
       <% Tag.all.each do |tag| %>
-      <%= link_to tag, class: "" do %>
+      <% new_tags = params[:tags] ? { tags: [*params[:tags], tag.name] } : { tags: [tag.name] } %>
+      <%= link_to posts_path(request.query_parameters.merge(new_tags)), class: "" do %>
       <%= tag.name.titleize %>
       <% end %>
       <% end %>

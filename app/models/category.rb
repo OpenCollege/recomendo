@@ -10,7 +10,11 @@ class Category < ApplicationRecord
   def name_with_icon
     "#{icon} #{name.titleize}"
   end
-  
+
+  def plural_name_with_icon
+    "#{icon} #{name.pluralize.titleize}"
+  end
+
   # def icon
   #   case name
   #   when "livro" then "📘"
