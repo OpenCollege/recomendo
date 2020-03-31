@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Recomendo</title>
-
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
   <!-- Lighthouse Details -->
   <link rel="manifest" href="/manifest.json">
@@ -11,7 +9,6 @@
   <meta name="theme-color" content="#C50001"/>
 
   <!-- Meta Description should be page specific -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Description" content="Recomendo App">
 
   <%= csrf_meta_tags %>
@@ -35,31 +32,22 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!-- Webpacker -->
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- Custom assets/stylesheets -->
 
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_editor.pkgd.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_style.min.css">
 </head>
-
 <body>
-
-  <%= render 'shared/header' %>
-  <%= render 'shared/notice' if notice %>
-
-  <div class="container-fluid">
-    <div class="row pt-2">
-      <div class="col-md-3 col-lg-3 bd-sidebar">
-        <%= render 'shared/sidebar' %>
-      </div>
-      <div class="col-md-9 col-lg-6">
-        <%= yield %>
-      </div>
-      <div class="d-none d-lg-block col-lg-2">
-        <%= render 'shared/add_to_home' %>
+  <section class="fdb-block fp-active" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);" data-block-type="forms" data-id="1" draggable="true">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+          <div class="fdb-box">
+            <%= yield %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <%= render 'shared/modal' %>
-
-  <%= render 'shared/footer' %>
-
+  </section>
 </body>
 </html>

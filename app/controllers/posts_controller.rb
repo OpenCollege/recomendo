@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.filter(params)
+    @filtered_category = Category.find(params[:category_id]) if params[:category_id]
+    @filtered_tags = params[:tags]
   end
 
   # GET /posts/1
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new(user: current_user)
   end
 
   # GET /posts/1/edit
@@ -26,11 +28,16 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    if !@post.category
+      @post.category = Category.last
+    end
+    @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Recomendação criada' }
         format.json { render :show, status: :created, location: @post }
       else
+        byebug
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -61,6 +68,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search_params
+    params.permit(:category_id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -71,4 +82,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body, :category_id, :url, :tag_list)
     end
+
+
 end

@@ -1,7 +1,23 @@
 <h2>Recomendações</h2>
 
-<%= render partial: "post", collection: @posts %>
+<div class="filters my-2">
+<% if @filtered_category %>
+  <%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
+  <i class="fas fa-times mr-2"></i>
+  <%= @filtered_category.plural_name_with_icon %>
+  <% end %>
+<% end %>
 
-<%= render partial: "post", collection: @posts %>
+<% if @filtered_tags %>
+<% @filtered_tags.each do |tag| %>
+<%= link_to posts_path(request.query_parameters.except(:tags)), class: "btn btn-info rounded-pill" do %>
+<i class="fas fa-times mr-2"></i>
+<%= tag %>
+<% end %>
+<% end %>
+<% end %>
+</div>
 
-<%= render partial: "post", collection: @posts %>
+<div class="row row-cols-1 ">
+    <%= render partial: "post", collection: @posts %>
+</div>

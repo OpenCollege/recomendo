@@ -1,8 +1,17 @@
+<style>
+#post_category_id {
+  -webkit-appearance: none;
+}
+.form-group.required > label:first-child:after {
+  content: '*';
+  margin-left: 2px;
+}
+</style>
 <!-- Modal -->
 <% @post ||= Post.new %>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">+ Nova Recomendação</h5>
@@ -15,20 +24,27 @@
 
       <div class="modal-body">
 
-        <div class="form-group">
+        <div class="form-group required">
           <%= f.label :title, "Título" %>
           <%= f.text_field :title, class:"form-control", placeholder:"O que você gostou?", required: true %>
         </div>
 
-        <div class="form-group">
-          <%= f.label :category_id, "Categoria" %>
-          <%= f.select :category_id, categories_for_select, { include_blank:"" }, { class:'form-control' } %>
+        <div class="row row row-cols-1 row-cols-md-2">
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :category_id, "Categoria" %>
+              <%= f.select :category_id, categories_for_select, { include_blank:"" }, { class:'form-control' } %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :tag_ids, "Tags" %>
+              <%= f.text_field :tag_list, value: f.object.tag_list.join(","), data:{role:"tagsinput"} %>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :tag_ids, "Tags" %>
-          <%= f.text_field :tag_list, value: f.object.tag_list.join(","), data:{role:"tagsinput"} %>
-        </div>
+
 
         <div class="form-group">
           <%= f.label :url, "Link" %>
@@ -42,7 +58,7 @@
 
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-outline-secondary"  data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" id="cancel-modal">Cancelar</button>
         <%= f.submit "Publicar", class:"btn btn-primary" %>
       </div>
 
@@ -50,3 +66,11 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+  $('#cancel-modal').on('click', function () {
+      $(this).closest('form').trigger('reset');
+  })
+});
+</script>
