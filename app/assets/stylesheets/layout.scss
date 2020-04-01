@@ -43,6 +43,15 @@
 
  .form-control {
    color: inherit;
-   // border: none;
    border-radius: 2rem;
+ }
+
+ .btn-circle {
+   width: 40px;
+   height: 40px;
+   padding: 0;
+   text-align: center;
+   border-radius: 100%;
+   font-size: 1.3rem;
+   line-height: 1.3rem;
  }

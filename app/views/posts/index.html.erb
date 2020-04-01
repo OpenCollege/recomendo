@@ -4,10 +4,10 @@
 
 <div class="filters my-2">
 <% if @filtered_category %>
-  <%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
-  <i class="fas fa-times mr-2"></i>
-  <%= @filtered_category.plural_name_with_icon %>
-  <% end %>
+<%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
+<i class="fas fa-times mr-2"></i>
+<%= @filtered_category.plural_name_with_icon %>
+<% end %>
 <% end %>
 
 <% if @filtered_tags %>
@@ -20,6 +20,8 @@
 <% end %>
 </div>
 
-<div class="row row-cols-1 ">
-    <%= render partial: "post", collection: @posts %>
+<%= @posts.each_slice(2) do |posts| %>
+<div class="card-deck my-3">
+  <%= render partial: "post", collection: posts %>
 </div>
+<% end %>
