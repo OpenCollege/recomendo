@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   acts_as_taggable
   belongs_to :category
   belongs_to :user
+  has_many :likes
 
   def self.filter(params)
     posts = Post.all.order(created_at: :desc)

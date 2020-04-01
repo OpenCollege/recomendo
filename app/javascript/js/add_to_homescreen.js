@@ -49,4 +49,11 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   });
 
+  // if are standalone android OR safari
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    // hidden the button
+    console.log("Standalone!")
+    addBtn.style.display = 'none';
+  }
+
 });

@@ -4,26 +4,29 @@
 }
 </style>
 
-<header class="navbar sticky-top navbar-light bg-white p-0  ">
-  <div class="col-4">
+<header class="navbar sticky-top navbar-light bg-white p-0 container-fluid">
+  <div class="col-md-2 text-center">
     <%= link_to "💬 Recomendo 👌", root_path, class:"navbar-brand m-1 text-center" %>
   </div>
-  <div class="col-4">
+  <div class="col-md-8 text-center">
     <div class="d-none d-md-block">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary new-post-btn my-1 float-right" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-primary new-post-btn my-1" data-toggle="modal" data-target="#exampleModal">
         <i class="fas fa-plus"></i>
         Nova recomendação
       </button>
     </div>
   </div>
-  <div class="col-4 text-right">
-    <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    <% else %>
-    <%= link_to('Login', new_user_session_path) %>
-    <% end %>
-    <!-- <a class="text-muted" href="javascript:history.back()"><i class="fas fa-chevron-left"></i></a> -->
-    <!-- <a class="m-0 text-muted" href="/posts"><i class="fas fa-ellipsis-v"></i></a> -->
+  <div class="col-md-2 text-center">
+    <div class="d-none d-md-block">
+      <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <% else %>
+      <%= link_to('Login', new_user_session_path) %>
+      <% end %>
+    </div>
+      <!-- <a class="text-muted" href="javascript:history.back()"><i class="fas fa-chevron-left"></i></a> -->
+      <!-- <a class="m-0 text-muted" href="/posts"><i class="fas fa-ellipsis-v"></i></a> -->
   </div>
+
 </header>
