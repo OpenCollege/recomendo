@@ -1,5 +1,7 @@
 <h2>Recomendações</h2>
 
+<%= render 'shared/filters' %>
+
 <div class="filters my-2">
 <% if @filtered_category %>
   <%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>

@@ -43,10 +43,19 @@
 
     </div>
 
-    <div class="card-footer bg-transparent d-flex justify-content-between container">
-      <a href="#"><i class="far fa-heart"></i> Like</a>
+    <div class="card-footer bg-transparent text-right">
+      <% if like = current_user.like_for_post(post) %>
+        <%= link_to post_like_path(post, like), method: :delete, class: "mx-3" do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to post_likes_path(post), method: :post, class: "mx-3" do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <% end %>
       <a href="#"><i class="far fa-comment"></i> Comment</a>
       <a href="#"><i class="far fa-bookmark"></i> Save</a>
+
     </div>
   </div>
 </div>

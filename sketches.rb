@@ -24,3 +24,25 @@ $.get( url, function( data ) {
   $('#videoPreview').append(`<img src=${thumbnail} width="100" height="100"/>`);
   $('#videoPreview').append(`</br><h1>${title}</h1>`);
 });
+
+
+require 'benchmark'
+
+input = ("a".."z").map { |letter| [letter, letter] }.to_h
+n = 10_000
+
+Benchmark.bm do |benchmark|
+  benchmark.report("likes") do
+    n.times do
+      user = User.last
+      user.likes.include?(like)
+    end
+  end
+
+  benchmark.report("like_ids") do
+    n.times do
+      user = User.last
+      user.like_ids.include?(like.id)
+    end
+  end
+end
