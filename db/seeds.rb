@@ -21,7 +21,7 @@ programação = Tag.create(name:"programação")
 netflix = Tag.create(name:"netflix")
 youtube = Tag.create(name:"youtube")
 
-user.posts.create(title:"Self-Made", category: series, body: "Minisérie de 4 episódios sobre a primeira mulher milhonária dos EUA", tags_list:"netflix")
+user.posts.create(title:"Self-Made", category: series, body: "Minisérie de 4 episódios sobre a primeira mulher milhonária dos EUA", tag_list:"netflix")
 user.posts.create(title:"Sully", category: movie, body: "Filme sobre um cara que fez um pouso de emergência de um avião no Rio Hudson", tag_list:"netflix")
 user.posts.create(title:"Tim Ferris", category: podcast, body: "Tudo de buenas")
 user.posts.create(title:"Can't Hurt Me", category: book, body: "O único americano que terminou o treinamento do navy SEAL, US Army Ranger e também da Força Aérea americana. O cara era um gordão que só comia sorvete e virou um super-top-fit")
