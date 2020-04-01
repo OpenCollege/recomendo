@@ -44,7 +44,7 @@
     </div>
 
     <div class="card-footer bg-transparent text-right">
-      <% if like = current_user.like_for_post(post) %>
+      <% if like = current_user.likes.find_by(post: post) %>
         <%= link_to post_like_path(post, like), method: :delete, class: "mx-3" do %>
           <i class="fas fa-heart"></i>
         <% end %>
