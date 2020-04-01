@@ -7,8 +7,4 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes
 
-  def like_for_post(post)
-    likes.where(post: post).first
-  end
-
 end
