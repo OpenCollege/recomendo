@@ -33,9 +33,6 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- Custom assets/stylesheets -->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_editor.pkgd.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_style.min.css">
 </head>
 <body>
   <section class="fdb-block fp-active" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);">
@@ -43,6 +40,8 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
           <div class="fdb-box">
+            <h2 class=" bg-primary text-light rounded mb-4 mt-0"> Recomendo  <br>  💬 👌</h2>
+            <hr>
             <%= render 'shared/flash_messages' %>
             <%= yield %>
           </div>

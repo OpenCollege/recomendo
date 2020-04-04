@@ -20,5 +20,10 @@ class User < ApplicationRecord
       "https://api.adorable.io/avatars/285/#{email}"
     end
   end
-  
+
+  # https://mensfeld.pl/2013/12/rails-devise-and-remember_me-rememberable-by-default/
+  def remember_me
+    true
+  end
+
 end

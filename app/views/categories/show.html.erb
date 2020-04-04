@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="my-3 p-3 bg-white rounded shadow text-center">
+  <h2><%= @category.icon %></h2>
+  <h3><%= @category.name.pluralize.titleize %></h3>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="row row-cols-1 row-cols-md-2 my-3">
+  <%= render partial: "posts/post", collection: @category.posts %>
+</div>

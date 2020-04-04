@@ -33,7 +33,8 @@ gem 'awesome_print', :require => 'ap' # Print with indentation on rails console
 gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'devise'
-gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views'
 gem 'rails-i18n'
 
 group :development, :test do

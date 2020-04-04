@@ -20,8 +20,6 @@
 <% end %>
 </div>
 
-<%= @posts.each_slice(2) do |posts| %>
-<div class="card-deck my-3">
-  <%= render partial: "post", collection: posts %>
+<div class="row row-cols-1 row-cols-md-2 my-4">
+  <%= render partial: "post", collection: @posts %>
 </div>
-<% end %>
