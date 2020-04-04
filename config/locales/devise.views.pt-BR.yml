@@ -16,7 +16,7 @@ pt-BR:
         last_sign_in_ip: Último IP de acesso
         locked_at: Bloqueado em
         password: Senha
-        password_confirmation: Confirme sua senha
+        password_confirmation: Confirmação de senha
         remember_created_at: Lembrar criado em
         remember_me: Ficar conectado
         reset_password_sent_at: Resetar senha enviado em
@@ -39,10 +39,10 @@ pt-BR:
     failure:
       already_authenticated: Você já está autenticado.
       inactive: A sua conta ainda não foi ativada.
-      invalid: Inválido %{authentication_keys} ou senha.
+      invalid: "%{authentication_keys} ou senha inválidos"
       last_attempt: Você tem mais uma única tentativa antes de sua conta ser bloqueada.
       locked: A sua conta está bloqueada.
-      not_found_in_database: Inválido %{authentication_keys} ou senha.
+      not_found_in_database: "%{authentication_keys} ou senha inválidos"
       timeout: A sua sessão expirou, por favor, faça login novamente para continuar.
       unauthenticated: Para continuar, faça login ou crie uma conta.
       unconfirmed: Antes de continuar, confirme a sua conta.
