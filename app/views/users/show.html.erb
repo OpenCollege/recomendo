@@ -1,3 +1,48 @@
+<% if current_user == @user %>
+<div class="text-center mb-2 bg-white rounded p-2">
+  <%= link_to "Editar perfil", edit_user_path, class: "btn btn-outline-secondary" %>
+</div>
+<% end %>
+
 <div class="my-3 p-3 bg-white rounded shadow-sm">
-  hi
+  <div class="row">
+    <div class="col-md-4 d-flex align-items-center justify-content-center">
+      <div class="overflow-hidden rounded-circle" style="width: 160px">
+        <%= image_tag @user.profile_image, height: 160 %>
+      </div>
+    </div>
+    <div class="col-md-8 text-center my-2">
+      <h5><%= @user.full_name %></h5>
+      <p class="text-muted"><%= @user.email %></p>
+      <hr>
+      <div class="row row-cols-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body h5">
+              5
+            </div>
+            <div class="card-footer">
+              Recomendações
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body h5">
+              10
+            </div>
+            <div class="card-footer">
+              Posts salvos
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Recomendações</h3>
+
+<div class="row row-cols-1 row-cols-md-2 my-3">
+  <%= render partial: "posts/post", collection: @user.posts %>
 </div>

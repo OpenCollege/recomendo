@@ -44,8 +44,6 @@
           </div>
         </div>
 
-
-
         <div class="form-group">
           <%= f.label :url, "Link" %>
           <%= f.text_field :url, class:"form-control", placeholder:"" %>
@@ -72,5 +70,6 @@ $(document).ready(function(){
   $('#cancel-modal').on('click', function () {
       $(this).closest('form').trigger('reset');
   })
+  $("#post_tag_list").tagsinput()
 });
 </script>

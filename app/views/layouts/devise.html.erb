@@ -38,11 +38,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_style.min.css">
 </head>
 <body>
-  <section class="fdb-block fp-active" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);" data-block-type="forms" data-id="1" draggable="true">
+  <section class="fdb-block fp-active" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
           <div class="fdb-box">
+            <%= render 'shared/flash_messages' %>
             <%= yield %>
           </div>
         </div>
