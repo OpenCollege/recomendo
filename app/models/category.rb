@@ -1,6 +1,8 @@
 class Category < ApplicationRecord
   has_many :posts
 
+  validates :name, uniqueness: { case_sensitive: false }
+
   scope :by_name, -> { order(name: :asc) }
 
   def self.names
@@ -15,12 +17,4 @@ class Category < ApplicationRecord
     "#{icon} #{name.pluralize.titleize}"
   end
 
-  # def icon
-  #   case name
-  #   when "livro" then "📘"
-  #   when "filme" then "🍿"
-  #   when "podcast" then "🎧"
-  #   when "seriado" then "📺"
-  #   end
-  # end
 end

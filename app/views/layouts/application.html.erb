@@ -35,13 +35,14 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!-- Webpacker -->
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!-- Custom assets/stylesheets -->
 
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css"> -->
 </head>
 
 <body>
+  <a name="top"></a>
 
   <%= render 'shared/header' %>
-  <%= render 'shared/notice' if notice %>
 
   <div class="container-fluid">
     <div class="row my-3">
@@ -49,8 +50,9 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-    <%= render 'shared/add_to_home' %>
+    <%= render 'shared/flash_messages' %>
     <%= yield %>
+    <%= render 'shared/add_to_home' %>
     </div>
     <div class="col-md-2">
     </div>

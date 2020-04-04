@@ -9,8 +9,8 @@
 
       <h3>Categorias <span><%= Category.all.count %></span></h3>
       <% Category.all.each do |category| %>
-      <% class_name = @filtered_category == category ? "btn btn-primary" : "btn btn-light"  %>
-      <%= link_to posts_path(category_id: category), class: class_name do %>
+      <% class_name = @filtered_category == category ? "btn-primary" : "btn-light"  %>
+      <%= link_to posts_path(category_id: category), class: "btn btn-lg #{class_name}" do %>
       <%= category.plural_name_with_icon %>
       <% end %>
       <% end %>

@@ -1,0 +1,43 @@
+
+
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <div class="row mx-3">
+    <div class="col-md-4">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="overflow-hidden rounded-circle" style="width: 160px">
+          <%= image_tag @user.profile_image, height: 160 %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 text-center">
+      <h3><%= @user.full_name %></h3>
+
+      <div class="d-flex justify-content-center">
+        <div class="mx-3">
+          <h5>5</h5>
+          Seguidores
+        </div>
+        <div class="mx-3">
+          <h5>5</h5>
+          Seguindo
+        </div>
+      </div>
+
+      <div>
+        <% if current_user == @user %>
+        <div class="text-center mb-2 bg-white rounded p-2">
+          <%= link_to "Configurações", edit_user_path, class: "btn rounded-pill btn-outline-primary" %>
+        </div>
+        <% else %>
+        <%= link_to " + Seguir", "#", class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 my-3">
+  <%= render partial: "posts/post", collection: @user.posts %>
+</div>
