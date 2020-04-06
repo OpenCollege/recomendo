@@ -3,13 +3,13 @@ class LikesController < ApplicationController
 
   def create
     @post.likes.create(user: current_user)
-    redirect_to posts_url
+    respond_to :js
   end
 
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
-    redirect_to posts_url
+    respond_to :js
   end
 
   private
