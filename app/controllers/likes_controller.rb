@@ -1,15 +1,14 @@
 class LikesController < ApplicationController
   before_action :set_post
+  respond_to :js
 
   def create
     @post.likes.create(user: current_user)
-    respond_to :js
   end
 
   def destroy
-    @like = Like.find(params[:id])
+    @like = @post.likes.find(params[:id])
     @like.destroy
-    respond_to :js
   end
 
   private

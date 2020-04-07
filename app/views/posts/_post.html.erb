@@ -32,7 +32,9 @@
 
 
   <div class="card-body">
-    <span class="h5"><%= post.title %></span>
+    <span class="h5">
+      <%= link_to post.title, post, class: "text-dark" %>
+    </span>
 
     <% if post.url.present? %>
     <%= link_to post.url, target:"_blank" do %>
@@ -53,7 +55,7 @@
     </div>
     <div>
       <span class="like">
-        <%= render "like_button", post: post %>
+        <%= render "posts/like_button", post: post %>
       </span>
       <a class="p-3" href="#"><i class="far fa-comment"></i></a>
       <a class="p-3" href="#"><i class="far fa-bookmark"></i></a>

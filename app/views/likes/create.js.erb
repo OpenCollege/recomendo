@@ -1,2 +1,2 @@
-$('#post_<%= @post.id %> .like').html("<%= j render 'posts/like_button', post: @post %>");
-console.log("create like success");
+document.querySelector("#post_<%= @post.id %> .like")
+.innerHTML = "<%= j render 'posts/like_button', post: @post %>";
