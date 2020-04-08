@@ -9,9 +9,10 @@ require("@rails/activestorage").start()
 require("channels")
 
 // Bootstrap JS
-require('jquery')
-require('popper.js')
-require('bootstrap')
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
+require("bootstrap");
+
 
 // Custom CSS files
 require("css/site")

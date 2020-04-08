@@ -33,7 +33,7 @@
 
   <div class="card-body">
     <span class="h5">
-      <%= link_to post.title, post, class: "text-dark" %>
+      <%= link_to post.title, post, class: "text-dark", remote: true %>
     </span>
 
     <% if post.url.present? %>
