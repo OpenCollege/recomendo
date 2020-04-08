@@ -13,6 +13,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if false # TODO -> Hack way to reload when coming from JS
+      flash[:alert] = "Something went wrong ..."
+      render "reload"
+    end
   end
 
   # GET /posts/new

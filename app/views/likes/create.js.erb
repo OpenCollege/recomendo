@@ -1,0 +1,2 @@
+document.querySelector("#post_<%= @post.id %> .like")
+.innerHTML = "<%= j render 'posts/like_button', post: @post %>";
