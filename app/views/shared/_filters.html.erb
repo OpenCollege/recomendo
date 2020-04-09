@@ -15,9 +15,9 @@
       <% end %>
       <% end %>
 
-      <h3>Tags <span><%= Tag.all.count %></span></h3>
+      <h3>Tags <span><%= ActsAsTaggableOn::Tag.all.count %></span></h3>
       <div class="">
-        <% Tag.all.each do |tag| %>
+        <% ActsAsTaggableOn::Tag.all.each do |tag| %>
         <% new_tags = params[:tags] ? { tags: [*params[:tags], tag.name] } : { tags: [tag.name] } %>
         <%= link_to tag.name.titleize, posts_path(request.query_parameters.merge(new_tags)), class: "btn btn-light d-inline-block" %>
         <% end %>
