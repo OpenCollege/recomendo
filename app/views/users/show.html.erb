@@ -11,15 +11,13 @@
     </div>
     <div class="col-md-8 text-center">
       <h3><%= @user.full_name %></h3>
-
+      <h3><%= @user.email %></h3>
       <div class="d-flex justify-content-center">
         <div class="mx-3">
-          <h5>5</h5>
-          Seguidores
+          <h5><%= @user.followers_count %> seguidores</h5>
         </div>
         <div class="mx-3">
-          <h5>5</h5>
-          Seguindo
+          <h5><%= @user.followings_count %> seguindo</h5>
         </div>
       </div>
 
@@ -28,8 +26,10 @@
         <div class="text-center mb-2 bg-white rounded p-2">
           <%= link_to "Configurações", edit_user_path, class: "btn rounded-pill btn-outline-primary" %>
         </div>
+        <% elsif current_user.follows?(@user) %>
+        <%= link_to "Seguindo", user_follow_path(@user, current_user), method: :delete, class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
         <% else %>
-        <%= link_to " + Seguir", "#", class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
+        <%= link_to " + Seguir", user_follows_path(@user), method: :post, class: "btn rounded-pill btn-primary py-2 m-2" %>
         <% end %>
       </div>
 
