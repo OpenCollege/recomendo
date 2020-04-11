@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User
-user = User.create(email:"lakuhn@ucs.br", password:"123123")
+user = User.create(first_name: "Lucas", last_name: "Kuhn", email:"lucas@lucas", password:"123123")
 
 # Categories
 movie = Category.create(name: "filme",icon: "🍿")
@@ -15,12 +15,9 @@ book = Category.create(name: "livro",icon: "📘")
 podcast = Category.create(name: "podcast",icon: "🎧")
 series = Category.create(name: "seriado",icon: "📺")
 video = Category.create(name: "video",icon: "📹")
+video = Category.create(name: "outro",icon: "💬")
 
-# Tags
-programação = Tag.create(name:"programação")
-netflix = Tag.create(name:"netflix")
-youtube = Tag.create(name:"youtube")
-
+# Posts
 user.posts.create(title:"Self-Made", category: series, body: "Minisérie de 4 episódios sobre a primeira mulher milhonária dos EUA", tag_list:"netflix")
 user.posts.create(title:"Sully", category: movie, body: "Filme sobre um cara que fez um pouso de emergência de um avião no Rio Hudson", tag_list:"netflix")
 user.posts.create(title:"Tim Ferris", category: podcast, body: "Tudo de buenas")
