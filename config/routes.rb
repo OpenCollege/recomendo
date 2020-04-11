@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users do
+    resources :follows
+  end
   resources :tags
   resources :categories
   resources :posts do

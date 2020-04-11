@@ -6,6 +6,14 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.filter(params)
+
+    if params[:all].present?
+      
+    else
+      @posts = @posts.posted_by(current_user.followings)
+    end
+
+
     @filtered_category = Category.find(params[:category_id]) if params[:category_id]
     @filtered_tags = params[:tags]
   end

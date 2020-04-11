@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_232344) do
+ActiveRecord::Schema.define(version: 2020_04_09_013447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2020_04_01_232344) do
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "followed_user_id", null: false
+    t.integer "following_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_user_id", "following_user_id"], name: "index_follows_on_followed_user_id_and_following_user_id", unique: true
+    t.index ["followed_user_id"], name: "index_follows_on_followed_user_id"
+    t.index ["following_user_id"], name: "index_follows_on_following_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -101,6 +111,8 @@ ActiveRecord::Schema.define(version: 2020_04_01_232344) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.integer "followings_count", default: 0
+    t.integer "followers_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
