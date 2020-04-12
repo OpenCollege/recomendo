@@ -8,7 +8,7 @@
   <div class="col-md-2 text-center">
     <%= link_to "💬 Recomendo 👌", root_path, class:"navbar-brand m-1 text-center" %>
   </div>
-  <div class="col-md-8 text-center">
+  <div class="col-md-8 text-right">
     <div class="d-none d-md-block">
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary new-post-btn my-1" data-toggle="modal" data-target="#exampleModal">
@@ -17,11 +17,13 @@
       </button>
     </div>
   </div>
-  <div class="col-md-2 text-center">
+  <div class="col-md-2 text-right">
     <div class="d-none d-md-block">
       <% if user_signed_in? %>
-      <%= link_to "Minha conta", current_user %>      
-      <%= link_to("Sair", destroy_user_session_path, method: :delete) %>
+      <%= link_to current_user, class: "text-dark" do %>
+        <%= current_user.first_name %>
+        <i class="las fa-user h5"></i>
+      <% end %>
       <% else %>
       <%= link_to('Login', new_user_session_path) %>
       <% end %>
