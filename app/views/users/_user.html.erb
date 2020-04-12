@@ -1,5 +1,4 @@
-<div class="my-3 p-3 bg-white rounded shadow-sm">
-
+<div class="my-3 p-3 bg-white rounded shadow-sm" id="user_<%= user.id %>">
   <div class="row align-items-center text-center">
     <div class="col-md-4">
       <div class="rounded-circle">
@@ -7,17 +6,11 @@
       </div>
     </div>
     <div class="col-md-4">
-      <%= user.full_name %>
+      <h5><%= user.full_name %></h5>
+      <%= user.posts.count %><br> postagens
     </div>
-    <div class="col-md-4">
-      <% if current_user.follows?(user) %>
-      <%= link_to "Seguindo", user_follow_path(user, current_user), method: :delete, class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
-      <% else %>
-      <%= link_to " + Seguir", user_follows_path(user), method: :post, class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
-      <% end %>
+    <div class="col-md-4 follow">
+      <%= render 'follow', user: user %>
     </div>
   </div>
-
-
-
 </div>

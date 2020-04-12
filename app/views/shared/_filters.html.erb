@@ -1,31 +1,33 @@
-<nav class="navbar navbar-light bg-light custom-box">
-  <a class="navbar-brand" href="#">Filtrar</a>
-  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar-collapse collapse" id="navbarsExample01" style="">
-    <ul class="navbar-nav mr-auto">
-
-      <h3>Categorias <span><%= Category.all.count %></span></h3>
+<div class="custom-box">
+  <%= link_to "#collapseExample", class: "btn btn-outline-secondary w-100 border-0", role: 'button', data: {toggle: 'collapse'} do %>
+    Explorar <i class="las la-search"></i>
+  <% end %>
+  <div class="collapse" id="collapseExample">
+    <div class="my-3">
+      <h4>Categorias</h4>
       <% Category.all.each do |category| %>
-      <% class_name = @filtered_category == category ? "btn-primary" : "btn-light"  %>
+      <% class_name = params[:category_id] == category.id.to_s ? "btn-primary" : "btn-light"  %>
       <%= link_to posts_path(category_id: category), class: "btn btn-lg #{class_name}" do %>
       <%= category.plural_name_with_icon %>
       <% end %>
       <% end %>
+    </div>
 
-      <h3>Tags <span><%= ActsAsTaggableOn::Tag.all.count %></span></h3>
-      <div class="">
+    <div class="my-3">
+      <h4>Tags</h4>
+      <div>
         <% ActsAsTaggableOn::Tag.all.each do |tag| %>
         <% new_tags = params[:tags] ? { tags: [*params[:tags], tag.name] } : { tags: [tag.name] } %>
         <%= link_to tag.name.titleize, posts_path(request.query_parameters.merge(new_tags)), class: "btn btn-light d-inline-block" %>
         <% end %>
       </div>
+    </div>
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
+    <div class="my-3">
+      <h4>Postagens</h4>
+      <%= link_to "De quem eu sigo", posts_path(request.query_parameters.except(:all)), class: "btn btn #{params[:all] ? "btn-light" : "btn-primary"}" %>
+      <%= link_to "De todos", posts_path(request.query_parameters.merge(all: true)), class: "btn btn #{params[:all] ? "btn-primary" : "btn-light"}" %>
+    </div>
   </div>
-</nav>
+
+</div>

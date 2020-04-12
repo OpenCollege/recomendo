@@ -6,7 +6,7 @@ class FollowsController < ApplicationController
     @user.received_follows.create(following_user: current_user)
 
     respond_to do |format|
-      format.js { render inline: "location.reload()" }
+      format.js { render 'reload' }
       format.html { redirect_back(fallback_location: root_path) }
     end
   end
@@ -15,7 +15,7 @@ class FollowsController < ApplicationController
     @user.received_follows.find_by(following_user: current_user).destroy
 
     respond_to do |format|
-      format.js { render inline: "location.reload()" }
+      format.js { render 'reload' }
       format.html { redirect_back(fallback_location: root_path) }
     end
   end

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  has_many :posts, -> { order(created_at: :desc) }
+  has_many :posts
   has_many :likes
 
   has_one_attached :image
@@ -14,6 +14,12 @@ class User < ApplicationRecord
 
   has_many :given_follows, foreign_key: :following_user_id, class_name: "Follow"
   has_many :followings, through: :given_follows, source: :followed_user
+
+  after_create :follow_self!
+
+  def follow_self!
+    given_follows.create(followed_user: self)
+  end
 
   def follows?(user)
     given_follows.where(followed_user: user).exists?

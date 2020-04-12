@@ -1,0 +1,2 @@
+document.querySelector("#follow_<%= @user.id %>").parentElement
+.innerHTML = "<%= j render 'users/follow', user: @user %>"
