@@ -4,18 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @post = Post.new
-    @posts = Post.filter(params)
-
-    if params[:all].present?
-      
+    if current_user.followings.empty?
+      render "shared/welcome"
     else
+      @posts = Post.filter(params)
       @posts = @posts.posted_by(current_user.followings)
+      @filtered_category = Category.find(params[:category_id]) if params[:category_id]
+      @filtered_tags = params[:tags]
     end
-
-
-    @filtered_category = Category.find(params[:category_id]) if params[:category_id]
-    @filtered_tags = params[:tags]
   end
 
   # GET /posts/1
@@ -85,15 +81,15 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, :category_id, :url, :tag_list)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:title, :body, :category_id, :url, :tag_list)
+  end
 
 
 end
