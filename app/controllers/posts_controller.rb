@@ -4,14 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if current_user.followings.empty?
-      render "shared/welcome"
-    else
+    if params[:all].present?
       @posts = Post.filter(params)
-      @posts = @posts.posted_by(current_user.followings)
-      @filtered_category = Category.find(params[:category_id]) if params[:category_id]
-      @filtered_tags = params[:tags]
+    else
+      @posts = Post.filter(params).posted_by(current_user.followings)
     end
+    @filtered_category = Category.find(params[:category_id]) if params[:category_id]
+    @filtered_tags = params[:tags]
   end
 
   # GET /posts/1

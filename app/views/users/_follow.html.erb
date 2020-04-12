@@ -1,0 +1,13 @@
+<span id="follow_<%= user.id %>">
+
+<% if current_user.follows?(user) %>
+
+<%= link_to "Seguindo", user_follow_path(user, current_user), method: :delete, remote: true, class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
+
+<% else %>
+
+<%= link_to "Seguir", user_follows_path(user), method: :post, remote: true, class: "btn rounded-pill btn-primary py-2 m-2" %>
+
+<% end %>
+
+</span>

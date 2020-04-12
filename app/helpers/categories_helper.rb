@@ -1,8 +1,5 @@
 module CategoriesHelper
   def categories_for_select
-    Category.all.pluck(:name,:id)
-  end
-  def cateries_with_symbols
-    
+    Category.all.map {|category| [category.name_with_icon, category.id]}
   end
 end

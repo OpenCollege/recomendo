@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users do
     resources :follows
   end
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/home', to: 'application#home'
+  get '/welcome', to: 'application#welcome'
+  
   root to: 'posts#index'
 
   namespace :cors do
