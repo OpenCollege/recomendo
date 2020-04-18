@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   resources :categories
   resources :posts do
     resources :likes
+    member do
+      get :read_more
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/home', to: 'application#home'
   get '/welcome', to: 'application#welcome'
-  
+
   root to: 'posts#index'
 
   namespace :cors do

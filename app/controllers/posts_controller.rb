@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :read_more]
 
   # GET /posts
   # GET /posts.json
@@ -44,7 +44,6 @@ class PostsController < ApplicationController
         format.html { redirect_to posts_path, notice: 'Recomendação criada' }
         format.json { render :show, status: :created, location: @post }
       else
-        byebug
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -77,6 +76,12 @@ class PostsController < ApplicationController
 
   def search_params
     params.permit(:category_id)
+  end
+
+  def read_more
+    respond_to do |format|
+      format.js { render js: "document.querySelector('#post_#{@post.id} .card-text').innerHTML = `#{@post.body.gsub(/\n/, '<br/>')}` " }
+    end
   end
 
   private
