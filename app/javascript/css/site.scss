@@ -2,5 +2,8 @@
 
 $primary: #FF6056;
 $headings-font-family: 'Poppins', sans-serif;
+$custom-file-text: (
+  pt-BR: "Procurar"
+);
 
 @import "~bootstrap/scss/bootstrap.scss";
