@@ -25,6 +25,14 @@ class UsersController < ApplicationController
   end
 
   def user_params
+    # https://github.com/janko/image_processing/blob/master/doc/minimagick.md#resize_to_fill
+    # https://tosbourn.com/active-storage-image-compression/
+    if params[:user][:image].present?
+      tempfile = params[:user][:image].tempfile
+      result = ImageProcessing::MiniMagick.source(tempfile).resize_to_fill!(500,500)
+      params[:user][:image].tempfile = result
+    end
+
     params.require(:user).permit(:first_name, :last_name, :image)
   end
 
