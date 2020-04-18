@@ -28,29 +28,38 @@
         <% end %>
       </small>
     </div>
+
   </div>
 
-
   <div class="card-body">
+
     <span class="h5">
-      <%= link_to post.title, post, class: "text-dark", remote: true %>
+      <%= link_to post.title, post, class: "text-dark" %>
     </span>
 
     <% if post.url.present? %>
-    <%= link_to post.url, target:"_blank" do %>
-    <br>Acessar link <i class="fas fa-angle-right"></i>
+      <%= link_to post.url, target:"_blank" do %>
+        <br>Acessar link <i class="fas fa-angle-right"></i>
+      <% end %>
     <% end %>
-    <% end %>
+    
     <p class="card-text">
-      <%= post.body.try(:truncate,80, separator: /\s/).try(:html_safe) %>
+      <% if post.body.length > 80 %>
+      <%= truncate(post.body, length: 80, separator: /\s/) %>
+      <br><small><%= link_to "Ver mais", read_more_post_path(post), class: "text-muted", remote: true %></small>
+      <% else %>
+      <%= post.body %>
+      <% end %>
+
     </p>
 
   </div>
 
   <div class="card-footer bg-transparent d-flex justify-content-between">
+
     <div>
       <% if post.user == current_user %>
-      <%= link_to "Editar postagem", edit_post_path(post), class: "btn btn-sm btn-outline-secondary rounded-pill" %>
+      <%= link_to "Editar", edit_post_path(post), class: "btn btn-sm btn-outline-secondary rounded-pill" %>
       <% end %>
     </div>
     <div>
@@ -60,7 +69,9 @@
       <a class="p-3" href="#"><i class="far fa-comment"></i></a>
       <a class="p-3" href="#"><i class="far fa-bookmark"></i></a>
     </div>
+
   </div>
+
 </div>
 
 </div>
