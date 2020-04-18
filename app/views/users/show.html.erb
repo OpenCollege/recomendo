@@ -4,20 +4,19 @@
   <div class="row mx-3">
     <div class="col-md-4">
       <div class="d-flex align-items-center justify-content-center">
-        <div class="overflow-hidden rounded-circle" style="width: 160px">
-          <%= image_tag @user.profile_image, height: 160 %>
+        <div class="overflow-hidden rounded-circle">
+          <%= image_tag @user.profile_image, size: 180 %>
         </div>
       </div>
     </div>
     <div class="col-md-8 text-center">
       <h3><%= @user.full_name %></h3>
-      <h3><%= @user.email %></h3>
       <div class="d-flex justify-content-center">
         <div class="mx-3">
-          <h5><%= @user.followers_count %> seguidores</h5>
+          <%= @user.followers_count - 1 %><br> seguidores
         </div>
         <div class="mx-3">
-          <h5><%= @user.followings_count %> seguindo</h5>
+          <%= @user.posts.count%><br> recomendações
         </div>
       </div>
 
