@@ -1,3 +1,7 @@
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+<div class="my-3 p-3 bg-white rounded shadow">
+
 <%= form_for(@user, html: { method: :put }) do |f| %>
 <div class="form-group">
   <%= f.label :first_name %>
@@ -11,7 +15,22 @@
 
 <div class="form-group">
   <%= f.label :image %>
-  <%= f.file_field :image, class: 'form-control' %>
+  <div class="custom-file">
+    <%= f.file_field :image, class: "custom-file-input", lang: locale %>
+    <label class="custom-file-label" for="user_image">Selecionar</label>
+  </div>
 </div>
-<%= f.submit %>
+
+<div class="text-center">
+<%= f.button "Atualizar", class: 'btn btn-primary', data: { disable_with: '<i class="fa fa-spinner fa-spin"></i>' } %>
+</div>
+
 <% end %>
+</div>
+
+<script>
+// https://getbootstrap.com/docs/4.4/components/forms/#file-browser
+$(document).ready(function () {
+  bsCustomFileInput.init()
+})
+</script>

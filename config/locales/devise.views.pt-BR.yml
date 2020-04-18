@@ -27,6 +27,7 @@ pt-BR:
         updated_at: Atualizado em
         first_name: Nome
         last_name: Sobrenome
+        image: Imagem
     models:
       user: Usuário
   devise:
