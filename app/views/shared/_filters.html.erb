@@ -7,7 +7,7 @@
       <h4>Categorias</h4>
       <% Category.all.each do |category| %>
       <% class_name = params[:category_id] == category.id.to_s ? "btn-primary" : "btn-light"  %>
-      <%= link_to posts_path(category_id: category), class: "btn btn-lg #{class_name}" do %>
+      <%= link_to posts_path(category_id: category), class: "btn btn-lg #{class_name} m-2" do %>
       <%= category.plural_name_with_icon %>
       <% end %>
       <% end %>
