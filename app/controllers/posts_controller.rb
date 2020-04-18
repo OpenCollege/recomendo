@@ -80,7 +80,7 @@ class PostsController < ApplicationController
 
   def read_more
     respond_to do |format|
-      format.js { render inline: "document.querySelector('#post_<%= @post.id %> .card-text').innerHTML = '<%= j @post.body %>' " }
+      format.js { render js: "document.querySelector('#post_#{@post.id} .card-text').innerHTML = `#{@post.body.gsub(/\n/, '<br/>')}` " }
     end
   end
 
