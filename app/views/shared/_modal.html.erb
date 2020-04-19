@@ -8,7 +8,7 @@
 }
 </style>
 <!-- Modal -->
-<% @post ||= Post.new %>
+<% post = Post.new %>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -20,7 +20,7 @@
         </button>
       </div>
 
-      <%= form_for @post do |f| %>
+      <%= form_for post do |f| %>
 
       <div class="modal-body">
 
