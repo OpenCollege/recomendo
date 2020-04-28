@@ -135,7 +135,7 @@
 <script>
 const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
 const isMobileDevice = /Mobi/i.test(window.navigator.userAgent);
-const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator.standalone);
+const isInStandaloneMode = (window.navigator.standalone) || (window.matchMedia('(display-mode: standalone)').matches); // https://web.dev/customize-install/
 
 if ( isMobileDevice ) {
   if ( isInStandaloneMode ) {
