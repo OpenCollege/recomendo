@@ -28,6 +28,10 @@
 <% end %>
 </div>
 
+<div class="my-4 p-3 bg-white rounded shadow text-center">
+<%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+</div>
+
 <script>
 // https://getbootstrap.com/docs/4.4/components/forms/#file-browser
 $(document).ready(function () {

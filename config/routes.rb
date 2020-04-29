@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   get '/home', to: 'application#home'
   get '/welcome', to: 'application#welcome'
 
-  root to: 'posts#index'
+  authenticated :user do
+    root to: 'posts#index', as: :authenticated_user_root
+  end
+
+  root to: 'home#show'
 
   namespace :cors do
     get 'get_title'
