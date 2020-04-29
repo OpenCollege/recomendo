@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
 
-
 <header class="text-center my-4">
   <%= link_to "💬 Recomendo 👌", root_path, class:"py-5 h2 text-decoration-none font-poppins" %>
 </header>
@@ -38,6 +37,9 @@
   </div>
 </div>
 
+<p class="text-center">
+  <%= link_to "Login pelo site", new_user_session_path, class: 'btn btn-sm btn-outline-secondary' %>
+</p>
 
 
 <footer class="fdb-block footer-large bg-dark fp-active" data-block-type="footers" data-id="6">
@@ -78,11 +80,12 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="text-center">
+          <h3> Acessando pelo celular? </h3>
           <p class="lead">
-            Clique aqui em baixo no botão de <span class="text-dark">Adicionar a tela inicial</span> que irá aparecer no seu celular.
+            Clique aqui aqui em baixo para instalar, e em seguida confirme clicando no botão de <span class="text-dark">Adicionar a tela inicial</span>
           </p>
           <p class="lead">
-            <i class="fas fa-long-arrow-alt-down"></i>
+            <%= link_to "Instalar", "#", class: "btn btn-secondary", id: "add-to-homescreen"  %>
           </p>
         </div>
       </div>
@@ -103,6 +106,9 @@
             Clique aqui em baixo no ícone de compartilhar <br>
             <%= image_tag "https://img.icons8.com/ios/100/000000/upload.png", size: 30 %> <br>
             e em seguida selecione <span class="text-dark">Adicionar a tela inicial</span>
+          </p>
+          <p class="lead">
+            <i class="fas fa-long-arrow-alt-down"></i>
           </p>
         </div>
       </div>
@@ -156,8 +162,19 @@ if ( isMobileDevice ) {
 }
 
 
+// Make body fixed to show bottom bar with share button on safari
+$('#appleModal').on('show.bs.modal', function () {
+  document.getElementsByTagName("body")[0].style.position = 'fixed'
+  document.getElementsByTagName("body")[0].style.overflow = 'hidden'
+});
+
+$('#appleModal').on('hide.bs.modal', function () {
+  document.getElementsByTagName("body")[0].style.position = null
+  document.getElementsByTagName("body")[0].style.overflow = null
+});
+
 // Button to trigger PWA on Android
-btnInstallApp = document.querySelector('#mobile-button')
+btnInstallApp = document.querySelector('#add-to-homescreen')
 
 
 // PWA Triggering
