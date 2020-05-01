@@ -2,7 +2,7 @@
 
 <div class="card border-left-<%= post.category.try(:name) %> border-0 border-radius-1 box-shadow h-100 mx-md-2 overflow-hidden" id="post_<%= post.id %>">
 
-  <div class="card-header">
+  <div class="card-header border-bottom-0">
 
     <div class="d-flex justify-content-between align-items-center">
       <div class="mr-3">
@@ -21,7 +21,7 @@
         <% end %>
       </div>
     </div>
-    <div class="text-right">
+    <div class="text-right text-nowrap overflow-auto">
       <small class="align-top">
         <% post.tags.each do |tag| %>
         <span class="badge badge-pill badge-info py-1"><%= tag.name %></span>
