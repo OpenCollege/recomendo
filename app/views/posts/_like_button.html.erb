@@ -2,14 +2,14 @@
 
 <% if like %>
 
-<%= link_to post_like_path(post, like), method: :delete, class: "p-3", remote: true do %>
-<i class="fas fa-heart"></i>
+<%= link_to post_like_path(post, like), method: :delete, class: "btn btn-sm rounded-pill btn-outline-primary text-decoration-none active", remote: true do %>
+  <i class="fas fa-heart"></i> <small><%= post.likes.count if post.likes.count > 0 %></small>
 <% end %>
 
 <% else %>
 
-<%= link_to post_likes_path(post), method: :post, class: "p-3", remote: true do %>
-<i class="far fa-heart"></i>
+<%= link_to post_likes_path(post), method: :post, class: "btn btn-sm rounded-pill btn-outline-primary text-decoration-none", remote: true do %>
+  <i class="far fa-heart"></i> <small><%= post.likes.count if post.likes.count > 0 %></small>
 <% end %>
 
 <% end %>

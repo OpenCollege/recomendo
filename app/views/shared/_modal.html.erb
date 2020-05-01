@@ -1,20 +1,11 @@
-<style>
-#post_category_id {
-  -webkit-appearance: none;
-}
-.form-group.required > label:first-child:after {
-  content: '*';
-  margin-left: 2px;
-}
-</style>
 <!-- Modal -->
 <% post = Post.new %>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="new-post-modal" tabindex="-1" role="dialog" aria-labelledby="new-post-modalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">+ Nova Recomendação</h5>
+        <h5 class="modal-title" id="new-post-modalLabel">+ Nova Recomendação</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -1,6 +1,6 @@
 <div class="col my-3">
 
-<div class="card border-left-<%= post.category.try(:name) %> box-shadow h-100 mx-md-2" id="post_<%= post.id %>">
+<div class="card border-left-<%= post.category.try(:name) %> border-0 border-radius-1 box-shadow h-100 mx-md-2 overflow-hidden" id="post_<%= post.id %>">
 
   <div class="card-header">
 
@@ -42,7 +42,7 @@
         <br>Acessar link <i class="fas fa-angle-right"></i>
       <% end %>
     <% end %>
-    
+
     <p class="card-text">
       <% if post.body.length > 80 %>
       <%= truncate(post.body, length: 80, separator: /\s/) %>
@@ -57,17 +57,16 @@
 
   <div class="card-footer bg-transparent d-flex justify-content-between">
 
-    <div>
-      <% if post.user == current_user %>
-      <%= link_to "Editar", edit_post_path(post), class: "btn btn-sm btn-outline-secondary rounded-pill" %>
-      <% end %>
-    </div>
+
     <div>
       <span class="like">
         <%= render "posts/like_button", post: post %>
       </span>
-      <a class="p-3" href="#"><i class="far fa-comment"></i></a>
-      <a class="p-3" href="#"><i class="far fa-bookmark"></i></a>
+    </div>
+    <div>
+      <% if post.user == current_user %>
+      <%= link_to "Editar", edit_post_path(post), class: "btn btn-sm btn-outline-secondary rounded-pill" %>
+      <% end %>
     </div>
 
   </div>
