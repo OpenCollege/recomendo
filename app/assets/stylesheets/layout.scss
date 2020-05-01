@@ -27,6 +27,10 @@
    box-shadow: 0 4px 8px 3px rgba(60,64,67,.15);
  }
 
+ .border-radius-1 {
+   border-radius: 1rem;
+ }
+
  body.modal-open > :not(.modal) {
      -webkit-filter: blur(2px);
      -moz-filter: blur(2px);
@@ -37,7 +41,7 @@
 
  .form-control {
    color: inherit;
-   border-radius: 2rem;
+   border-radius: 1rem;
  }
 
  .btn-circle {
@@ -53,3 +57,12 @@
  .font-poppins {
    font-family: 'Poppins', sans-serif !important;
  }
+
+ .form-group.required > label:first-child:after {
+   content: '*';
+   margin-left: 2px;
+ }
+
+ .overflow-auto::-webkit-scrollbar {
+  display: none;
+}

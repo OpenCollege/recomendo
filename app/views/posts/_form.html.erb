@@ -1,4 +1,4 @@
-<div class="my-3 p-3 bg-white rounded shadow">
+<div class="my-3 p-3 bg-white border-radius-1 shadow">
 
 <% if post.errors.any? %>
 <div id="error_explanation">
@@ -38,10 +38,12 @@
 
   <div class="form-group">
     <%= f.label :body, "Descrição" %>
-    <%= f.text_area :body, class:"form-control", placeholder:"" %>
+    <%= f.text_area :body, class:"form-control", placeholder:"", rows: 7 %>
   </div>
 
-    <%= f.submit %>
+  <div class="text-center">
+    <%= f.submit t("helpers.submit.update", model: nil), class: "btn btn-primary"  %>
+  </div>
 
 <% end %>
 

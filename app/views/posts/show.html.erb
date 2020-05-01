@@ -1,12 +1,12 @@
 <% post = @post %>
 
-<div class="p-3 bg-white rounded shadow" id="post_<%= post.id %>">
+<div class="p-3 bg-white border-radius-1 shadow" id="post_<%= post.id %>">
   <div class="text-center h3">
     <small><%= post.category.name_with_icon %></small>
   </div>
 </div>
 
-<div class="my-3 p-3 bg-white rounded shadow" id="post_<%= post.id %>">
+<div class="my-3 p-3 bg-white border-radius-1 shadow" id="post_<%= post.id %>">
 
   <div class="d-flex justify-content-between align-items-center">
     <div class="mr-3">
@@ -21,7 +21,11 @@
   </div>
 
     <hr>
-
+    <p>
+      <% post.tags.each do |tag| %>
+        <span class="badge badge-pill badge-info font-poppins"><%= tag.name %></span>
+      <% end %>
+    </p>
     <h5>
     <%= link_to post.title, post, class: "text-dark", remote: true %>
     </h5>
@@ -33,10 +37,18 @@
   <% end %>
 
   <p>
-    <%= post.body %>
+    <%= simple_format post.body %>
   </p>
+
   <hr>
-  <span class="like">
-    <%= render "posts/like_button", post: post %>
-  </span>
+  <div class="d-flex justify-content-between">
+    <span class="like">
+      <%= render "posts/like_button", post: post %>
+    </span>
+    <span>
+      <% if post.user == current_user %>
+      <%= link_to "Editar", edit_post_path(post), class: "btn btn-sm btn-outline-secondary rounded-pill" %>
+      <% end %>
+    </span>
+  </div>
 </div>
