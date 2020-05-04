@@ -1,16 +1,20 @@
-<div class="my-3 p-3 bg-white rounded shadow-sm" id="user_<%= user.id %>">
-  <div class="row align-items-center text-center">
-    <div class="col-md-4">
-      <div class="rounded-circle">
-        <%= image_tag user.thumbnail, size: 80, class: "rounded-circle" %>
+<div class="my-3 p-3 bg-white border-radius-1 shadow-sm" id="user_<%= user.id %>">
+  <div class="row align-items-center">
+    <div class="col-9">
+      <%= link_to user_path(user), class:'text-dark' do %>
+      <div class="d-flex">
+        <div class="rounded-circle d-inline-block">
+          <%= image_tag user.thumbnail, size: 50, class: "rounded-circle" %>
+        </div>
+        <div class="mx-2">
+          <strong><%= user.full_name %></strong>
+          <br><%= user.posts.count %> recomendações
+        </div>
       </div>
+      <% end %>
     </div>
-    <div class="col-md-4">
-      <h5><%= user.full_name %></h5>
-      <%= user.posts.count %><br> postagens
-    </div>
-    <div class="col-md-4 follow">
-      <%= render 'follow', user: user %>
+    <div class="col-3 text-center follow">
+      <%= render "users/follow", user: user %>
     </div>
   </div>
 </div>

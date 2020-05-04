@@ -2,11 +2,15 @@
 
 <% if current_user.follows?(user) %>
 
-<%= link_to "Seguindo", user_follow_path(user, current_user), method: :delete, remote: true, class: "btn rounded-pill btn-outline-primary py-2 m-2" %>
+  <%= link_to user_follow_path(user, current_user), method: :delete, remote: true, class: "btn btn-sm rounded-pill btn-primary" do %>
+    <i class="las la-user-friends"></i>  <i class="las la-check "></i>
+  <% end %>
 
 <% else %>
 
-<%= link_to "Seguir", user_follows_path(user), method: :post, remote: true, class: "btn rounded-pill btn-primary py-2 m-2" %>
+  <%= link_to user_follows_path(user), method: :post, remote: true, class: "btn btn-sm rounded-pill btn-outline-primary" do %>
+    <i class="las la-plus"></i>
+  <% end %>
 
 <% end %>
 

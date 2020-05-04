@@ -13,7 +13,7 @@
       <% end %>
     </div>
 
-    <div class="my-3">
+    <!-- <div class="my-3">
       <h4>Tags</h4>
       <div>
         <% ActsAsTaggableOn::Tag.all.each do |tag| %>
@@ -21,7 +21,7 @@
         <%= link_to tag.name.titleize, posts_path(request.query_parameters.merge(new_tags)), class: "btn btn-light d-inline-block" %>
         <% end %>
       </div>
-    </div>
+    </div> -->
 
     <div class="my-3">
       <h4>Postagens</h4>

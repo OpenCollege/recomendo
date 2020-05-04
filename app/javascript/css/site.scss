@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 $primary: #FF6056;
-$headings-font-family: 'Poppins', sans-serif;
+$headings-font-family: 'Poppins', sans-serif, 'FontAwesome';
 $custom-file-text: (
   pt-BR: "Procurar"
 );
+$enable-responsive-font-sizes: true;
+$body-bg: #FFEAE4;
 
 @import "~bootstrap/scss/bootstrap.scss";
