@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :read_more
     end
   end
+  resource :search
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/home', to: 'application#home'

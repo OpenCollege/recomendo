@@ -25,7 +25,7 @@ book = Category.create(name: "livro",icon: "📘")
 podcast = Category.create(name: "podcast",icon: "🎧")
 series = Category.create(name: "seriado",icon: "📺")
 video = Category.create(name: "video",icon: "📹")
-video = Category.create(name: "outro",icon: "💬")
+outro = Category.create(name: "outro",icon: "💬")
 
 # Posts
 user.posts.create(title:"Self-Made", category: series, body: "Minisérie de 4 episódios sobre a primeira mulher milhonária dos EUA", tag_list:"netflix")
