@@ -3,25 +3,31 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+// https://github.com/rails/webpacker/issues/1207
+
+import Rails from '@rails/ujs';
+Rails.start();
+window.Rails = Rails;
+
+import Turbolinks from 'turbolinks';
+Turbolinks.start();
+
+import * as ActiveStorage from "@rails/activestorage";
+ActiveStorage.start();
 
 // Bootstrap JS
-import JQuery from 'jquery';
-window.$ = window.JQuery = JQuery;
-require("bootstrap");
+import $ from "jquery";
+window.$ = $;
+import("bootstrap");
 
+// Bootstrap CSS with customizations
+require("css/site");
 
-// Custom CSS files
-require("css/site")
 
 // Custom JS files
-require("js/add_to_homescreen")
-require("js/fontawesome")
-require("js/tagsinput")
-
+import("js/add_to_homescreen");
+import("js/fontawesome");
+import("js/tagsinput");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
