@@ -57,10 +57,9 @@
 </div>
 
 <script>
-$(document).ready(function(){
+document.addEventListener('turbolinks:load', function(){
   $('#cancel-modal').on('click', function () {
       $(this).closest('form').trigger('reset');
   })
-  $("#post_tag_list").tagsinput()
 });
 </script>
