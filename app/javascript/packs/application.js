@@ -15,7 +15,7 @@ require("channels")
 // Bootstrap JS
 import JQuery from 'jquery';
 window.$ = JQuery;
-require("bootstrap");
+import("bootstrap");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -25,12 +25,12 @@ require("bootstrap");
 // const imagePath = (name) => images(name, true)
 
 // Custom CSS files
-require("css/site")
+import("css/site")
 
 // // Custom JS files
 import("js/add_to_homescreen")
-import("js/tagsinput")
 import("js/fontawesome")
+import("js/tagsinput")
 
 
 if (navigator.serviceWorker) {
