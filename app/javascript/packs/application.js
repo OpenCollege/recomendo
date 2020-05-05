@@ -3,25 +3,19 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
+// require("@rails/ujs").start()
+import Rails from '@rails/ujs';
+Rails.start();
+window.Rails = Rails;
+
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
 // Bootstrap JS
 import JQuery from 'jquery';
-window.$ = window.JQuery = JQuery;
-require("bootstrap");
-
-
-// Custom CSS files
-require("css/site")
-
-// Custom JS files
-require("js/add_to_homescreen")
-require("js/fontawesome")
-require("js/tagsinput")
-
+window.$ = JQuery;
+import("bootstrap");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -37,3 +31,11 @@ if (navigator.serviceWorker) {
       console.log(reg);
     });
 }
+
+// Custom CSS files
+import("css/bootstrap_custom")
+
+// // Custom JS files
+import("js/add_to_homescreen")
+import("js/tagsinput")
+import("js/fontawesome")
