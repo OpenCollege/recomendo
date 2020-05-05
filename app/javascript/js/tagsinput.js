@@ -689,3 +689,8 @@ function keyCombinationInList(keyPressEvent, lookupList) {
 $(function() {
   $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
 });
+
+document.addEventListener('turbolinks:load', function(){
+  $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+});
+  
