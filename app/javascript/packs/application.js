@@ -25,7 +25,7 @@ import("bootstrap");
 // const imagePath = (name) => images(name, true)
 
 // Custom CSS files
-import("css/site")
+import("stylesheets/site")
 
 // // Custom JS files
 import("js/add_to_homescreen")
