@@ -6,19 +6,17 @@
   <!-- Lighthouse Details -->
   <link rel="manifest" href="/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#C50001"/>
+  <meta name="theme-color" content="#000000"/>
 
   <!-- Meta Description should be page specific -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Description" content="Recomendo App">
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <!-- Apple specific PWA -->
-  <%= favicon_link_tag 'icon_192.png', rel: 'apple-touch-icon', type: 'image/png' %>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="format-detection" content="telephone=no">
+  <%= render "shared/apple_meta" %>
 
   <!-- Icons -->
   <%= favicon_link_tag "favicon-16x16.png", sizes:"16x16" %>
