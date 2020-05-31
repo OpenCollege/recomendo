@@ -1,6 +1,6 @@
 <%= render 'shared/filters' %>
 
-<div class="filters my-2">
+<div class="filters my-2 mx-md-2">
 <% if @filtered_category %>
 <%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
 <i class="fas fa-times mr-2"></i>

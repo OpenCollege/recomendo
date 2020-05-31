@@ -25,8 +25,14 @@
         <%= link_to "#", class: "btn btn-lg btn-secondary d-none", data: {toggle: "modal", target: "#mobileModal"}, id: 'mobile-button' do %>
           <i class="fas fa-mobile mr-2"></i> Entrar
         <% end %>
-        <%= link_to "Entrar", new_user_session_path, class: 'btn btn-lg btn-secondary d-none', id: 'login-button' %>
       </p>
+      <div class="d-none row" id='login-button'>
+        <div class="col-6">
+        <%= link_to "Entrar", new_user_session_path, class: 'btn btn-lg btn-secondary w-100' %>
+        <br>
+        <%= link_to t("devise.shared.links.sign_up"), new_registration_path(:user), class: 'btn btn-outline-secondary w-100 mt-3' %>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -38,7 +44,7 @@
 </div>
 
 <p class="text-center">
-  <%= link_to "Login pelo site", new_user_session_path, class: 'btn btn-sm btn-outline-secondary' %>
+  <%= link_to "Login pelo site", new_user_session_path, class: 'text-secondary' %>
 </p>
 
 
@@ -82,7 +88,7 @@
         <div class="text-center">
           <h3> Acessando pelo celular? </h3>
           <p class="lead">
-            Clique aqui aqui em baixo para instalar, e em seguida confirme clicando no botão de <span class="text-dark">Adicionar a tela inicial</span>
+            Clique aqui aqui em baixo para instalar, e em seguida confirme clicando no botão de <span class="text-dark">Adicionar a tela de início</span>
           </p>
           <p class="lead">
             <%= link_to "Instalar", "#", class: "btn btn-secondary", id: "add-to-homescreen"  %>
@@ -105,7 +111,7 @@
           <p class="lead">
             Clique aqui em baixo no ícone de compartilhar <br>
             <%= image_tag "https://img.icons8.com/ios/100/000000/upload.png", size: 30 %> <br>
-            e em seguida selecione <span class="text-dark">Adicionar a tela inicial</span>
+            e em seguida selecione <span class="text-dark">Adicionar a tela de início</span>
           </p>
           <p class="lead">
             <i class="fas fa-long-arrow-alt-down"></i>
