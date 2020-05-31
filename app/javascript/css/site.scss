@@ -1,3 +1,5 @@
+// Default variables in node_modules/bootstrap/scss/_variables.scss
+
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 $primary: #FF6056;
@@ -9,3 +11,8 @@ $enable-responsive-font-sizes: true;
 $body-bg: #FFEAE4;
 
 @import "~bootstrap/scss/bootstrap.scss";
+
+// Makes the transition to show modal faste
+.show {
+    transition: opacity 30ms;
+}

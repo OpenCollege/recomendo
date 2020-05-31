@@ -1,14 +1,17 @@
 <div style="height: 80px">
 </div>
+
 <nav class="navbar fixed-bottom bg-white d-md-none pb-4">
-  <%= link_to root_path, class: "h2 px-4 text-secondary" do %>
+  <%= link_to root_path, class: "h2 px-4 rounded-pill #{current_page?(root_path) ? 'btn-primary' : 'text-secondary'}" do %>
     <i class="las la-home"></i>
   <% end %>
-  <%= link_to search_path, class: "h2 px-4 text-secondary" do %>
+  <%= link_to search_path, class: "h2 px-4 rounded-pill #{current_page?(search_path) ? 'btn-primary' : 'text-secondary'}" do %>
     <i class="las fa-search"></i>
   <% end %>
-  <a class="h2 px-4 text-primary" href="#" data-toggle="modal" data-target="#new-post-modal"><i class="las la-plus"></i></a>
-  <%= link_to current_user, class: "h2 px-4 text-secondary" do %>
+  <%= link_to "#", class: "h2 px-4 text-secondary", data: {toggle: "modal", target: "#new-post-modal"} do %>
+    <i class="las la-plus"></i>
+  <% end %>
+  <%= link_to current_user, class: "h2 px-4 rounded-pill #{current_page?(current_user) ? 'btn-primary' : 'text-secondary'}" do %>
     <i class="las fa-user"></i>
   <% end %>
 </nav>
