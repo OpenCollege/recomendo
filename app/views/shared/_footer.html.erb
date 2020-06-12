@@ -8,7 +8,7 @@
   <%= link_to search_path, class: "h2 px-4 rounded-pill #{current_page?(search_path) ? 'btn-primary' : 'text-secondary'}" do %>
     <i class="las fa-search"></i>
   <% end %>
-  <%= link_to "#", class: "h2 px-4 text-secondary", data: {toggle: "modal", target: "#new-post-modal"} do %>
+  <%= link_to "#", class: "h2 px-4 text-secondary", data: {toggle: "modal", target: "#new-post-category"} do %>
     <i class="las la-plus"></i>
   <% end %>
   <%= link_to current_user, class: "h2 px-4 rounded-pill #{current_page?(current_user) ? 'btn-primary' : 'text-secondary'}" do %>

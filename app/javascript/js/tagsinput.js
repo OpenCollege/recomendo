@@ -25,7 +25,8 @@ var defaultOptions = {
   addOnBlur: true,
   maxTags: undefined,
   maxChars: undefined,
-  confirmKeys: [13, 44, 32, 51],
+  // 13 = Enter, 44 = Print Screen, 32 = Spacebar, 51 = End, Shift + 35 = Hashtah (#)
+  confirmKeys: [13, 44, 32, 51, {which: 35, shiftKey: true}],
   delimiter: ',',
   delimiterRegex: null,
   cancelConfirmKeysOnEmpty: false,
@@ -693,4 +694,3 @@ $(function() {
 document.addEventListener('turbolinks:load', function(){
   $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
 });
-  

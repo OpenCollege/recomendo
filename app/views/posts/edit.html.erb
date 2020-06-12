@@ -1,1 +1,5 @@
 <%= render 'form', post: @post %>
+
+<div class="my-4 bg-white shadow text-center border-radius-1">
+  <td><%= link_to 'Apagar', @post, method: :delete, data: { confirm: "Apagar a postagem '#{@post.title}' ?" }, class: "d-block w-100 p-3" %></td>
+</div>
