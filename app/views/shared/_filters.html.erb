@@ -7,7 +7,7 @@
       <h4>Categorias</h4>
       <% Category.all.each do |category| %>
       <% class_name = params[:category_id] == category.id.to_s ? "btn-primary" : "btn-light"  %>
-      <%= link_to posts_path(category_id: category), class: "btn btn-lg #{class_name} m-2" do %>
+      <%= link_to posts_path(request.query_parameters.merge(category_id: category)), class: "btn btn-lg #{class_name} m-2" do %>
       <%= category.plural_name_with_icon %>
       <% end %>
       <% end %>
@@ -25,9 +25,40 @@
 
     <div class="my-3">
       <h4>Postagens</h4>
-      <%= link_to "De quem eu sigo", posts_path(request.query_parameters.except(:all)), class: "btn btn #{params[:all] ? "btn-light" : "btn-primary"}" %>
-      <%= link_to "De todos", posts_path(request.query_parameters.merge(all: true)), class: "btn btn #{params[:all] ? "btn-primary" : "btn-light"}" %>
+      <%= link_to "De quem eu sigo", posts_path(request.query_parameters.except(:all)), class: "btn #{params[:all] ? "btn-light" : "btn-primary"}" %>
+      <%= link_to "De todos", posts_path(request.query_parameters.merge(all: true)), class: "btn #{params[:all] ? "btn-primary" : "btn-light"}" %>
+    </div>
+
+    <div class="my-3">
+      <h4>Pessoas</h4>
+      <%= link_to "Procurar", search_path, class: "btn btn-light" %>
     </div>
   </div>
 
+</div>
+
+
+<div class="filters my-3 mx-md-2">
+<% if @filtered_category %>
+<%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
+<i class="fas fa-times mr-2"></i>
+<%= @filtered_category.plural_name_with_icon %>
+<% end %>
+<% end %>
+
+<% if @filtered_tags %>
+<% @filtered_tags.each do |tag| %>
+<%= link_to posts_path(request.query_parameters.except(:tags)), class: "btn btn-info rounded-pill mx-1" do %>
+<i class="fas fa-times mr-2"></i>
+<%= tag %>
+<% end %>
+<% end %>
+<% end %>
+
+<% if @posts_from_all %>
+<%= link_to posts_path(request.query_parameters.except(:all)), class: "btn btn-primary rounded-pill mx-1" do %>
+<i class="fas fa-times mr-2"></i>
+Postagens de todos
+<% end %>
+<% end %>
 </div>

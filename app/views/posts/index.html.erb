@@ -1,34 +1,12 @@
 <%= render 'shared/filters' %>
 
-<div class="filters my-2 mx-md-2">
-<% if @filtered_category %>
-<%= link_to posts_path(request.query_parameters.except(:category_id)), class: "btn btn-primary rounded-pill" do %>
-<i class="fas fa-times mr-2"></i>
-<%= @filtered_category.plural_name_with_icon %>
-<% end %>
-<% end %>
-
-<% if @filtered_tags %>
-<% @filtered_tags.each do |tag| %>
-<%= link_to posts_path(request.query_parameters.except(:tags)), class: "btn btn-info rounded-pill mx-1" do %>
-<i class="fas fa-times mr-2"></i>
-<%= tag %>
-<% end %>
-<% end %>
-<% end %>
-</div>
-
-
-
 <% if @posts.empty? %>
 <div class="text-center">
-  <div class="my-5 p-5 bg-white rounded shadow-sm text-center d-inline-block" data-toggle="modal" data-target="#new-post-modal">
-    <h4>
+  <div class="my-5 p-5 bg-white border-radius-1 box-shadow text-center d-inline-block">
+    <button type="button" data-toggle="modal" data-target="#new-post-category" class="btn btn-lg btn-outline-primary">
+      <i class="las la-plus h3"></i><br>
       Recomende algo!
-    </h4>
-    <h3>
-      <i class="las la-plus text-primary"></i>
-    </h3>
+    </button>
   </div>
 </div>
 <% end %>
