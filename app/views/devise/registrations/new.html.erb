@@ -1,38 +1,38 @@
 <h2><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'text-left'}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-group">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, required: true, autocomplete: "first_name", class:'form-control' %>
+  <div class="form-label-group">
+    <%= f.text_field :first_name, autofocus: true, required: true, placeholder: true, autocomplete: "first_name", class:'form-control' %>
+    <%= f.label :first_name %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "last_name", class:'form-control' %>
+  <div class="form-label-group">
+    <%= f.text_field :last_name, placeholder: true, autocomplete: "last_name", class:'form-control' %>
+    <%= f.label :last_name %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email", class:'form-control' %>
+  <div class="form-label-group">
+    <%= f.email_field :email, placeholder: true, autocomplete: "email", class:'form-control' %>
+    <%= f.label :email %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label-group">
+    <%= f.password_field :password, placeholder: true, autocomplete: "new-password", class:'form-control' %>
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
-    <% if @minimum_password_length %>
+    <!-- <% if @minimum_password_length %>
       <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-    <% end %>
+    <% end %> -->
   </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
+  <div class="form-label-group">
+    <%= f.password_field :password_confirmation, placeholder: true, autocomplete: "new-password", class:'form-control' %>
+    <%= f.label :password_confirmation %>
   </div>
 
   <div class="actions">
-    <%= f.submit t('.sign_up'), class: 'btn btn-lg btn-secondary' %>
+    <%= f.submit t('.sign_up'), class: 'btn btn-lg btn-secondary w-100' %>
   </div>
 <% end %>
 

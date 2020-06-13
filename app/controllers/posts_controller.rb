@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     end
     @filtered_category = Category.find(params[:category_id]) if params[:category_id]
     @filtered_tags = params[:tags]
+    @posts_from_all = params[:all].present?
   end
 
   # GET /posts/1

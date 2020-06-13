@@ -33,20 +33,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css">
 </head>
 <body>
-  <header class="text-center pt-4 pb-3 fixed-top">
+  <header class="text-center py-4">
       <%= link_to "💬 Recomendo 👌", root_path, class:"h2 text-decoration-none font-poppins" %>
   </header>
-  <section class="fdb-block fp-active" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);">
+
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
-          <div class="fdb-box">
+          <div class="p-4 bg-white border-radius-1 box-shadow">
             <%= render 'shared/flash_messages' %>
             <%= yield %>
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+  <style>
+  header {
+    background-color: transparent;
+  }
+  body {
+    background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs//hero/red.svg);
+    background-size: cover;
+  }
+  </style>
 </body>
 </html>

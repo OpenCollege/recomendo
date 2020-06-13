@@ -3,19 +3,27 @@
 <hr>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+  <div class="form-label-group text-left">
+    <%= f.email_field :email, class:'form-control', placeholder:"Email" %>
+    <%= f.label :email %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:'form-control' %>
+  <div class="form-label-group text-left">
+    <%= f.password_field :password, class:'form-control', placeholder:"Senha" %>
+    <%= f.label :password %>
   </div>
 
   <div class="form-group my-3">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-lg btn-secondary' %>
+    <%= f.submit  t('.sign_in'), class: 'btn btn-lg btn-secondary w-100' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="mt-4">
+  <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(resource_name), class: 'p-3 text-secondary' %>
+</div>
+
+<hr>
+
+<div class="mt-4">
+  <%= link_to t("devise.shared.links.sign_up"), new_registration_path(resource_name), class: 'btn btn-outline-secondary' %>
+</div>
