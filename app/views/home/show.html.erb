@@ -53,7 +53,7 @@
   </div>
 
   <div class="text-center">
-    <%= link_to "Entrar pelo site", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Entrar pelo site", new_user_session_path, class: "btn btn-outline-secondary" %>
   </div>
 </div>
 
@@ -74,7 +74,7 @@
 
       <div class="col-12 col-md-4 mt-5 mt-md-0 text-md-left">
         <h3><strong>About</strong></h3>
-        <p>Recomendo is a social network where users share recommendation for movies, series, books. It's a simple effort to bring word of mouth chats to an online space, and keep track of things people like.</p>
+        <p>Recomendo is a social network for sharing recommendations about movies, series, books, and so forth. It's a simple effort to bring word of mouth chats to an online space, and to keep track of things people like.</p>
       </div>
     </div>
 
@@ -132,18 +132,24 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="text-center">
-          <h3>
-            Utilizando um iPhone?
-          </h3>
-          <p class="lead">
-            Algumas funcionalidades só podem ser acessadas pelo navegador Safari <i class="fab fa-safari"></i>
-          </p>
-          <p class="lead">
-            <button class="btn" id="copyUrl">Clique aqui</button> <br>
-            Para copiar o link do site, e nos vemos por lá! 🙂 <br>
-          </p>
-        </div>
+        <h3 class="text-center">
+          Utilizando um iPhone?
+        </h3>
+        <p class="lead">
+          Algumas funcionalidades só funcionam pelo navegador Safari <i class="fab fa-safari"></i>
+        </p>
+        <p class="lead">
+          Se quiser baixar o nosso aplicativo, copie o link do site e entre por lá 🙂
+        </p>
+        <p>
+          <button class="btn btn-lg btn-outline-secondary w-100" id="copyUrl">Copiar recomendoapp.com</button>
+        </p>
+        <p class="lead">
+          Ou clique aqui em baixo para continuar por aqui mesmo:
+        </p>
+        <p>
+          <%= link_to "Entrar pelo site", new_user_session_path, class: "btn btn-lg btn-outline-secondary w-100" %>
+        </p>
       </div>
     </div>
   </div>
@@ -159,8 +165,9 @@
       document.querySelector('#login-button').classList.toggle('d-none');
     }
     else if ( isIos ) {
-      const isSafari = !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent))
-      if ( isSafari ) {
+      const isSafari = !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+      const isInAppBrowser = /Instagram|Twitter|GSA|FBAN/.test(window.navigator.userAgent);
+      if ( isSafari && !isInAppBrowser ) {
         document.querySelector('#apple-button').classList.toggle('d-none');
       } else {
         document.querySelector('#apple-safari-button').classList.toggle('d-none');
