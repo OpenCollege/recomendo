@@ -93,15 +93,19 @@
         <div class="text-center">
           <h3> Acessando pelo celular? </h3>
           <p class="lead">
-            Clique aqui aqui embaixo para instalar, e em seguida confirme clicando no botão de <br>
-            <span class="text-dark">Adicionar a tela de início</span>
+            Você pode clicar aqui embaixo para instalar nosso aplicativo:
           </p>
           <p class="lead">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="add-to-homescreen">Instalar</button>
           </p>
+          <p class="lead">
+            Ou clique aqui em baixo para continuar por aqui mesmo:
+          </p>
+          <p>
+            <%= link_to "Entrar pelo site", new_user_session_path, class: "btn btn-lg btn-outline-secondary w-100" %>
+          </p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
